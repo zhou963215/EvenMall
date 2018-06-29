@@ -14,7 +14,7 @@ pod 'Masonry'
 pod 'WeChat_SDK'
 pod 'EasyNavigation'
 pod 'WCDB'
-
+pod 'BaiduMapKit'
 
 
 end

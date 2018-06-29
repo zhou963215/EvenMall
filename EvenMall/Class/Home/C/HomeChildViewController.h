@@ -7,7 +7,10 @@
 //
 
 #import "HomeAnimationViewController.h"
+#import "HomeTypeModel.h"
 
 @interface HomeChildViewController : HomeAnimationViewController
+
+@property (nonatomic, strong) HomeTypeModel * model;
 
 @end
