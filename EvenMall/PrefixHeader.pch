@@ -1,0 +1,60 @@
+//
+//  PrefixHeader.pch
+//  EvenMall
+//
+//  Created by xuechuan on 2018/6/13.
+//  Copyright © 2018年 zhou. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "ZHHud.h"
+#import <Masonry/Masonry.h>
+#import "ZHNetWorking.h"
+#import "Url.h"
+#import "PublicVoid.h"
+
+static NSString * const AES_RSA_KEY = @"1111111111111111";
+
+
+
+//获取屏幕宽高
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+
+
+#define RGB(a,b,c)   [UIColor colorWithRed:(a)/255.0 green:(b)/255.0 blue:(c)/255.0 alpha:1]
+#define UICOLORRGB(hex)           [UIColor colorWithRed:(((hex) & 0xFF0000) >> 16)/255.0f green:(CGFloat) (((hex) & 0xFF00) >> 8)/255.0f blue:((hex) & 0xFF)/255.0f alpha:1]
+
+//window
+#define WINDOW  [UIApplication sharedApplication].keyWindow
+
+//token
+#define EDU_TOKEN [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]
+//staffid
+
+#define EDU_STAFFID  [[NSUserDefaults standardUserDefaults]objectForKey:@"dataid"]
+//是否是X
+#define kDevice_Is_iPhoneX        ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+
+//导航栏高度
+#define NavHeight   (kDevice_Is_iPhoneX ? 88 : 64)
+//X底部高度
+#define SEFE_BOTTOM    (kDevice_Is_iPhoneX ? 34 : 0)
+//实际界面高度
+#define FULL_HEIGHT   (HEIGHT) - (NavHeight) - (SEFE_BOTTOM)
+//底部
+#define HEIGHT_BOTTOM (HEIGHT)-(SEFE_BOTTOM)
+
+#define WEAKSELF(weakSelf)      __weak __typeof(&*self)weakSelf = self;
+
+#ifdef DEBUG
+#define EDULog(...) NSLog(@"%s\n %@\n\n", __func__, [NSString stringWithFormat:__VA_ARGS__]);
+#else
+#define EDULog(...) {}
+#endif
+
+#endif /* PrefixHeader_pch */
