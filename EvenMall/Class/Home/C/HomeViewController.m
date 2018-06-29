@@ -47,15 +47,7 @@
 //    
 //    self.titleScroll.headArray = [[NSMutableArray alloc]initWithArray:arr];
 //    
-//    for (int i = 0; i < arr.count; i ++) {
-//        
-//        HomeChildViewController  * vc = [HomeChildViewController new];
-//        vc.view.frame = CGRectMake(WIDTH * i, 0, WIDTH, self.mainScroll.frame.size.height);
-//        [self.mainScroll addSubview:vc.view];
-//        [self addChildViewController:vc];
-//        
-//        
-//    }
+
     
     
 
@@ -71,6 +63,17 @@
         
         self.model = [HomeTypeModel modelWithDictionary:responseObject];
         self.titleScroll.headArray = [[NSMutableArray alloc]initWithArray:self.model.data];
+        
+        for (int i = 0; i < self.model.data.count; i ++) {
+        
+            
+                HomeChildViewController  * vc = [HomeChildViewController new];
+                vc.view.frame = CGRectMake(WIDTH * i, 0, WIDTH, self.mainScroll.frame.size.height);
+                [self.mainScroll addSubview:vc.view];
+                [self addChildViewController:vc];
+        
+        
+            }
         
         
         
