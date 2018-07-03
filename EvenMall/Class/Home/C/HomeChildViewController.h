@@ -8,9 +8,10 @@
 
 #import "HomeAnimationViewController.h"
 #import "HomeTypeModel.h"
-
+#import <CoreLocation/CoreLocation.h>
 @interface HomeChildViewController : HomeAnimationViewController
 
-@property (nonatomic, strong) HomeTypeModel * model;
-
+@property (nonatomic, strong) HomeTypeDetailModel * model;
+@property (nonatomic) CLLocationCoordinate2D pt;
+- (void)refshData;
 @end

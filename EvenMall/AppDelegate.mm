@@ -8,13 +8,18 @@
 
 #import "AppDelegate.h"
 
+#import <BaiduMapAPI_Map/BMKMapView.h>
+
 #import "EMTabBarControllerConfig.h"
 
-@interface AppDelegate ()
+BMKMapManager * _mapManager;
+
+@interface AppDelegate ()<BMKGeneralDelegate>
 
 @end
 
 @implementation AppDelegate
+
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -24,10 +29,50 @@
     EMTabBarControllerConfig * tabBar = [[EMTabBarControllerConfig alloc]init];
     self.window.rootViewController = tabBar.tabBarController;
 
+    _mapManager  = [[BMKMapManager alloc]init];
 
+    BOOL ret = [_mapManager start:@"cyNxt7Dxo5LYPLU9i9WVAfoFwXoo8QLb" generalDelegate:self];
+    
+    if (!ret) {
+        
+        EDULog(@" manager start failed!");
+    }
 
 
     return YES;
+}
+
+
+- (void)onGetNetworkState:(int)iError{
+    
+    
+    if (iError == 0) {
+        
+        EDULog(@"联网成功");
+    }else{
+        
+        EDULog(@"onGetNetworkState %d--",iError);
+        
+        
+    }
+    
+}
+
+- (void)onGetPermissionState:(int)iError{
+    
+    
+    if (iError == 0) {
+        
+        EDULog(@"联网成功");
+    }else{
+        
+        EDULog(@"onGetNetworkState %d--",iError);
+        
+        
+    }
+
+    
+    
 }
 
 

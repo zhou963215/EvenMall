@@ -14,12 +14,28 @@
 #import "LoginViewController.h"
 
 #import "HomeTypeModel.h"
+
+
+
+#import "LocationManger.h"
+
 @interface HomeViewController ()<seletedControllerDelegate>
 
 @property (nonatomic, strong) ScrollView *titleScroll;
+
 @property (nonatomic, strong) UIScrollView * mainScroll;
 
 @property (nonatomic, strong) HomeTypeModel * model;
+
+@property (nonatomic, strong) LocationManger * locationManger;
+
+@property (nonatomic, strong) BMKPoiInfo * chosePoi;
+
+@property (nonatomic, assign) BOOL isReady;
+
+@property (nonatomic, copy) NSArray * locationArray;
+
+@property (nonatomic, strong) NSMutableArray * controllerArray;
 @end
 
 @implementation HomeViewController
@@ -28,9 +44,27 @@
     [super viewDidLoad];
 
     
+    [self creatNavView];
+    _locationManger = [LocationManger shareInstance];
+    [_locationManger.location startUserLocationService];
+    WEAKSELF(wk);
+    _locationManger.loactionCallBack = ^(NSDictionary * dict) {
+        
+        
+        wk.locationArray = dict[@"data"];
+        [wk RefreshAES];
+        EDULog(@"%@",dict);
+        
+    };
+    
+
     
     
-    
+
+}
+
+
+- (void)RefreshAES{
     
     
     [PublicVoid RefreshAES:^(BOOL isRefsh) {
@@ -41,18 +75,8 @@
         }
         
     }];
-   
     
-//    NSArray * arr = @[@"熟食",@"水果",@"生鲜",@"饮料",@"日用",@"百货"];
-//    
-//    self.titleScroll.headArray = [[NSMutableArray alloc]initWithArray:arr];
-//    
-
-    
-    
-
 }
-
 
 - (void)requestType{
     
@@ -63,24 +87,55 @@
         
         self.model = [HomeTypeModel modelWithDictionary:responseObject];
         self.titleScroll.headArray = [[NSMutableArray alloc]initWithArray:self.model.data];
-        
-        for (int i = 0; i < self.model.data.count; i ++) {
-        
-            
-                HomeChildViewController  * vc = [HomeChildViewController new];
-                vc.view.frame = CGRectMake(WIDTH * i, 0, WIDTH, self.mainScroll.frame.size.height);
-                [self.mainScroll addSubview:vc.view];
-                [self addChildViewController:vc];
-        
-        
-            }
-        
+        [self chlidViewAdd];
         
         
     } failure:^(NSError * _Nonnull error) {
         
         
     }];
+}
+
+
+- (void)chlidViewAdd{
+    
+    if (self.model) {
+        
+        
+        CLLocationCoordinate2D pt ;
+        
+        if (self.locationArray.count > 0) {
+            
+            BMKPoiInfo * info  = self.locationArray[0];
+            
+            pt = info.pt;
+            
+            
+        }else{
+            
+            pt  = CLLocationCoordinate2DMake(0, 0);
+        }
+        
+        
+        for (int i = 0; i < self.model.data.count; i ++) {
+            
+            HomeTypeDetailModel * model = self.model.data[i];
+            
+            HomeChildViewController  * vc = [HomeChildViewController new];
+            vc.model = model;
+            vc.pt = pt;
+            vc.view.frame = CGRectMake(WIDTH * i, 0, WIDTH, self.mainScroll.frame.size.height);
+            [self.mainScroll addSubview:vc.view];
+            [self addChildViewController:vc];
+            [vc refshData];
+            
+        }
+        
+    }
+    
+    
+   
+    
 }
 
 - (ScrollView *)titleScroll{
@@ -110,6 +165,32 @@
     
     return _mainScroll;
 }
+
+- (void)creatNavView{
+    
+    UIImageView * imageView = [[UIImageView alloc]init];
+    imageView.backgroundColor = [UIColor redColor];
+    [self.navigationView addSubview:imageView clickCallback:^(UIView *view) {
+        
+        
+    }];
+
+    WEAKSELF(wk);
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.centerY.equalTo(wk.navigationView);
+        make.right.equalTo(wk.navigationView.mas_centerX);
+        make.size.mas_equalTo(CGSizeMake(80, 30));
+        
+        
+    }];
+    
+   
+    
+    
+    
+}
+
 
 -(void)seletedControllerWith:(UIButton *)btn{
     
