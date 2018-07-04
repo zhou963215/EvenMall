@@ -33,6 +33,25 @@
 }
 
 
+- (void)refshData{
+    
+    
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:3003 parameters:@{@"catId":self.model.catId , @"lng" :@(self.pt.longitude),@"lat" : @(self.pt.latitude),@"page" : @(1),@"pageSize" : @(10) } success:^(id  _Nonnull responseObject) {
+        
+        
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        
+        
+        
+    }];
+    
+    
+    
+    
+}
+
 
 
 

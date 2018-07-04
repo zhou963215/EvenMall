@@ -317,7 +317,10 @@ static ZHNetWorking * netWorking=nil;
                 success(dict);
             }else{
                 
-                [ZHHud initWithMessage:@"您的网络有问题,请稍后重试"];
+                
+                NSString * resultMsg =dict [@"msg"];
+                
+                [ZHHud initWithMessage:resultMsg];
                 
             }
             
