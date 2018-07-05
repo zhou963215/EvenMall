@@ -8,7 +8,7 @@
 
 #import "HomeChildViewController.h"
 #import "EMTabBarControllerConfig.h"
-
+#import "GoodsTableViewCell.h"
 @interface HomeChildViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -54,22 +54,31 @@
 
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
+
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 20;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.textLabel.text = @"点击将商品添加到购物车";
-    cell.imageView.image = [UIImage imageNamed:@"shopping"];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+//    cell.textLabel.text = @"点击将商品添加到购物车";
+//    cell.imageView.image = [UIImage imageNamed:@"shopping"];
+    GoodsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"goods"];
+    
+    cell.count = 0;
+    
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    GoodsTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     [self addProductsAnimation:cell.imageView dropToPoint:CGPointMake(WIDTH*0.65, self.view.layer.bounds.size.height - 40) isNeedNotification:YES];
     
@@ -86,7 +95,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return 88;
+    return 130;
 }
 
 
@@ -96,7 +105,8 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+//        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+        [_tableView registerNib:[UINib nibWithNibName:@"GoodsTableViewCell" bundle:nil] forCellReuseIdentifier:@"goods"];
     }
     return _tableView;
 }

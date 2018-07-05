@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A171108E975CAE3AC053877F /* Pods_EvenMall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70FB1D4BF7B9887B753B9274 /* Pods_EvenMall.framework */; };
 		B416C2AC20E9C71100431652 /* LocationManger.m in Sources */ = {isa = PBXBuildFile; fileRef = B416C2AB20E9C71100431652 /* LocationManger.m */; };
+		B416C2BD20EDAABB00431652 /* GoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B416C2BB20EDAABB00431652 /* GoodsTableViewCell.m */; };
+		B416C2BE20EDAABB00431652 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B416C2BC20EDAABB00431652 /* GoodsTableViewCell.xib */; };
 		B41B906D20D398F800A91A36 /* EMTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B906C20D398F800A91A36 /* EMTabBarControllerConfig.m */; };
 		B41B907720D399B800A91A36 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B907620D399B800A91A36 /* HomeViewController.m */; };
 		B41B908320D399F900A91A36 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B908220D399F900A91A36 /* MineViewController.m */; };
@@ -100,6 +102,9 @@
 		95CF3FA73D944AF5F764E127 /* Pods-EvenMall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EvenMall.release.xcconfig"; path = "Pods/Target Support Files/Pods-EvenMall/Pods-EvenMall.release.xcconfig"; sourceTree = "<group>"; };
 		B416C2AA20E9C71100431652 /* LocationManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManger.h; sourceTree = "<group>"; };
 		B416C2AB20E9C71100431652 /* LocationManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManger.m; sourceTree = "<group>"; };
+		B416C2BA20EDAABB00431652 /* GoodsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsTableViewCell.h; sourceTree = "<group>"; };
+		B416C2BB20EDAABB00431652 /* GoodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsTableViewCell.m; sourceTree = "<group>"; };
+		B416C2BC20EDAABB00431652 /* GoodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsTableViewCell.xib; sourceTree = "<group>"; };
 		B41B906B20D398F800A91A36 /* EMTabBarControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMTabBarControllerConfig.h; sourceTree = "<group>"; };
 		B41B906C20D398F800A91A36 /* EMTabBarControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMTabBarControllerConfig.m; sourceTree = "<group>"; };
 		B41B907520D399B800A91A36 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -282,6 +287,9 @@
 			children = (
 				B4FF7C0620DB412E004EF138 /* ScrollView.h */,
 				B4FF7C0720DB412E004EF138 /* ScrollView.m */,
+				B416C2BA20EDAABB00431652 /* GoodsTableViewCell.h */,
+				B416C2BB20EDAABB00431652 /* GoodsTableViewCell.m */,
+				B416C2BC20EDAABB00431652 /* GoodsTableViewCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -798,6 +806,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B416C2BE20EDAABB00431652 /* GoodsTableViewCell.xib in Resources */,
 				B42E4A3920D116F100EB9447 /* hud_done@2x.png in Resources */,
 				B42E4A3B20D116F100EB9447 /* hud_done.png in Resources */,
 				B42E4A3720D116F100EB9447 /* hud_error@3x.png in Resources */,
@@ -941,6 +950,7 @@
 				CBC9578620E27602005CB6A8 /* LoginViewController.m in Sources */,
 				B4DA6AA620E3800B00B99B83 /* MembersView.m in Sources */,
 				B42E4A7920D1176700EB9447 /* ZHNetWorking.m in Sources */,
+				B416C2BD20EDAABB00431652 /* GoodsTableViewCell.m in Sources */,
 				B42E4A7320D1172E00EB9447 /* LocationAdress.m in Sources */,
 				B41B908320D399F900A91A36 /* MineViewController.m in Sources */,
 				B42E4A7420D1172E00EB9447 /* PublicVoid.m in Sources */,
