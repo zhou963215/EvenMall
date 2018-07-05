@@ -9,6 +9,9 @@
 #import "HomeChildViewController.h"
 #import "EMTabBarControllerConfig.h"
 #import "GoodsTableViewCell.h"
+
+#import "LoginViewController.h"
+
 @interface HomeChildViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -85,10 +88,11 @@
     UIViewController *vc = self.tabBarController.viewControllers[2];
     NSInteger badgeValue = [vc.tabBarItem.badgeValue integerValue];
     badgeValue += 1;
-
+    WEAKSELF(wk);
     self.addShopCarFinished = ^{
         
         vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", badgeValue];
+        [wk presentViewController:[LoginViewController new] animated:YES completion:nil];
         NSLog(@"完成了动画（如果不使用通知的方式，可以使用这种方式）");
     };
 }
