@@ -49,6 +49,7 @@
 		B45FD34720E2271000BA2540 /* RSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FD34220E2271000BA2540 /* RSAEncryptor.m */; };
 		B45FD34820E2271000BA2540 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FD34320E2271000BA2540 /* Base64.m */; };
 		B45FD34920E2271000BA2540 /* Base64Data.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FD34620E2271000BA2540 /* Base64Data.m */; };
+		B4718F7220F5FCFB00BE69E7 /* AdressSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4718F7120F5FCFB00BE69E7 /* AdressSelectViewController.m */; };
 		B4DA6A9820E37D9800B99B83 /* CYLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8C20E37D9700B99B83 /* CYLTabBarController.m */; };
 		B4DA6A9920E37D9800B99B83 /* CYLPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8D20E37D9700B99B83 /* CYLPlusButton.m */; };
 		B4DA6A9A20E37D9800B99B83 /* UIControl+CYLTabBarControllerExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8E20E37D9700B99B83 /* UIControl+CYLTabBarControllerExtention.m */; };
@@ -178,6 +179,8 @@
 		B45FD34520E2271000BA2540 /* Base64Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Data.h; sourceTree = "<group>"; };
 		B45FD34620E2271000BA2540 /* Base64Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Data.m; sourceTree = "<group>"; };
 		B45FD34A20E227B500BA2540 /* EvenMall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EvenMall.entitlements; sourceTree = "<group>"; };
+		B4718F7020F5FCFB00BE69E7 /* AdressSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdressSelectViewController.h; sourceTree = "<group>"; };
+		B4718F7120F5FCFB00BE69E7 /* AdressSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressSelectViewController.m; sourceTree = "<group>"; };
 		B4DA6A8920E37D9700B99B83 /* CYLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBar.h; sourceTree = "<group>"; };
 		B4DA6A8A20E37D9700B99B83 /* CYLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLConstants.h; sourceTree = "<group>"; };
 		B4DA6A8B20E37D9700B99B83 /* UIControl+CYLTabBarControllerExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+CYLTabBarControllerExtention.h"; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				B4FF7C0120DB2F67004EF138 /* HomeAnimationViewController.m */,
 				B4FF7C0320DB3CAF004EF138 /* HomeChildViewController.h */,
 				B4FF7C0420DB3CAF004EF138 /* HomeChildViewController.m */,
+				B4718F7020F5FCFB00BE69E7 /* AdressSelectViewController.h */,
+				B4718F7120F5FCFB00BE69E7 /* AdressSelectViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -965,6 +970,7 @@
 				B4DA6AA220E37FDD00B99B83 /* HomeModel.m in Sources */,
 				B4FF7C0220DB2F67004EF138 /* HomeAnimationViewController.m in Sources */,
 				B42E4A2920D116E200EB9447 /* TAPageControl.m in Sources */,
+				B4718F7220F5FCFB00BE69E7 /* AdressSelectViewController.m in Sources */,
 				B42E4A6720D1172300EB9447 /* UIView+Controller.m in Sources */,
 				B45FD33520E0EF5A00BA2540 /* NSString+AES.m in Sources */,
 				B4FF7C0520DB3CAF004EF138 /* HomeChildViewController.m in Sources */,

@@ -9,7 +9,6 @@
 #import "GoodsTableViewCell.h"
 
 @interface GoodsTableViewCell()
-@property (weak, nonatomic) IBOutlet UIImageView *headImg;
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLB;
 
@@ -72,7 +71,11 @@
  
     self.count +=1;
     
-    
+    if (self.goodsAdd) {
+        
+        self.goodsAdd(YES);
+
+    }
 }
 //减少
 - (IBAction)reductionGoods:(id)sender {
@@ -83,7 +86,11 @@
         return;
     }
     self.count -=1;
-    
+    if (self.goodsAdd) {
+        
+        self.goodsAdd(NO);
+        
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

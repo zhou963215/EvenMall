@@ -60,7 +60,7 @@
 //定位失败
 - (void)didFailToLocateUserWithError:(NSError *)error{
     
-//    [ZHHud initWithMessage:@"定位失败"];
+    [ZHHud initWithMessage:@"定位失败"];
     
     if (self.location) {
         

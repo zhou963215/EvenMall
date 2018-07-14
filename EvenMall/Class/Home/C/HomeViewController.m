@@ -19,6 +19,8 @@
 
 #import "LocationManger.h"
 
+#import "AdressSelectViewController.h"
+
 @interface HomeViewController ()<seletedControllerDelegate>
 
 @property (nonatomic, strong) ScrollView *titleScroll;
@@ -36,6 +38,8 @@
 @property (nonatomic, copy) NSArray * locationArray;
 
 @property (nonatomic, strong) NSMutableArray * controllerArray;
+
+@property (nonatomic, strong) UIButton * addressBtn;
 @end
 
 @implementation HomeViewController
@@ -43,7 +47,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
     [self creatNavView];
     _locationManger = [LocationManger shareInstance];
     [_locationManger.location startUserLocationService];
@@ -57,10 +60,6 @@
         
     };
     
-
-    
-    
-
 }
 
 
@@ -116,11 +115,12 @@
             pt  = CLLocationCoordinate2DMake(0, 0);
         }
         
-        
+        pt  = CLLocationCoordinate2DMake(34.767322, 113.686972);
         for (int i = 0; i < self.model.data.count; i ++) {
             
             HomeTypeDetailModel * model = self.model.data[i];
-            
+            // lng: 113.686972 lat: 34.767322
+
             HomeChildViewController  * vc = [HomeChildViewController new];
             vc.model = model;
             vc.pt = pt;
@@ -168,19 +168,21 @@
 
 - (void)creatNavView{
     
-    UIImageView * imageView = [[UIImageView alloc]init];
-    imageView.backgroundColor = [UIColor redColor];
-    [self.navigationView addSubview:imageView clickCallback:^(UIView *view) {
+    WEAKSELF(wk);
+    _addressBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+    _addressBtn.backgroundColor = [UIColor redColor];
+    [_addressBtn setTitle:@"硅谷广场" forState:UIControlStateNormal];
+    [self.navigationView addSubview:_addressBtn clickCallback:^(UIView *view) {
         
         
     }];
 
-    WEAKSELF(wk);
-    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_addressBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.centerY.equalTo(wk.navigationView);
-        make.right.equalTo(wk.navigationView.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(80, 30));
+        make.bottom.equalTo(wk.navigationView).offset(-5);
+        make.centerX.equalTo(wk.navigationView);
+        make.height.mas_equalTo(30);
+//        make.size.mas_equalTo(CGSizeMake(80, 30));
         
         
     }];

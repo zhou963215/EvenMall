@@ -37,7 +37,7 @@
 - (void)refshData{
     
     
-    [[ZHNetWorking sharedZHNetWorking]POSTAES:3003 parameters:@{@"catId":self.model.catId , @"lng" :@(self.pt.longitude),@"lat" : @(self.pt.latitude),@"page" : @(1),@"pageSize" : @(10) } success:^(id  _Nonnull responseObject) {
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:3009 parameters:@{@"catId":self.model.catId , @"lng" :@(self.pt.longitude),@"lat" : @(self.pt.latitude) } success:^(id  _Nonnull responseObject) {
         
         
         
@@ -67,12 +67,47 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-//    cell.textLabel.text = @"点击将商品添加到购物车";
-//    cell.imageView.image = [UIImage imageNamed:@"shopping"];
+
     GoodsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"goods"];
     
     cell.count = 0;
+    WEAKSELF(wk);
+    __weak GoodsTableViewCell * good = cell;
+    cell.goodsAdd = ^(BOOL isAdd) {
+        
+        UIViewController *vc = wk.tabBarController.viewControllers[2];
+        NSInteger badgeValue = [vc.tabBarItem.badgeValue integerValue];
+        if (isAdd) {
+            
+            [wk addProductsAnimation:good.headImg dropToPoint:CGPointMake(WIDTH*0.65, self.view.layer.bounds.size.height - 40) isNeedNotification:YES];
+            
+            
+            
+            badgeValue += 1;
+            WEAKSELF(wk);
+            wk.addShopCarFinished = ^{
+                
+                vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", badgeValue];
+//                [wk presentViewController:[LoginViewController new] animated:YES completion:nil];
+                NSLog(@"完成了动画（如果不使用通知的方式，可以使用这种方式）");
+            };
+        }else{
+            
+            
+            badgeValue -=1;
+            if (badgeValue == 0) {
+                
+                vc.tabBarItem.badgeValue = nil;
+            }else{
+                
+                vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", badgeValue];
+
+            }
+        }
+        
+       
+        
+    };
     
     
     return cell;
@@ -81,20 +116,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    GoodsTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    [self addProductsAnimation:cell.imageView dropToPoint:CGPointMake(WIDTH*0.65, self.view.layer.bounds.size.height - 40) isNeedNotification:YES];
-    
-    UIViewController *vc = self.tabBarController.viewControllers[2];
-    NSInteger badgeValue = [vc.tabBarItem.badgeValue integerValue];
-    badgeValue += 1;
-    WEAKSELF(wk);
-    self.addShopCarFinished = ^{
-        
-        vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", badgeValue];
-        [wk presentViewController:[LoginViewController new] animated:YES completion:nil];
-        NSLog(@"完成了动画（如果不使用通知的方式，可以使用这种方式）");
-    };
+   
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

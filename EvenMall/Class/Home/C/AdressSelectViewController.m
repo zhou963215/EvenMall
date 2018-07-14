@@ -1,26 +1,29 @@
 //
-//  MineViewController.m
+//  AdressSelectViewController.m
 //  EvenMall
 //
-//  Created by xuechuan on 2018/6/15.
+//  Created by xuechuan on 2018/7/11.
 //  Copyright © 2018年 zhou. All rights reserved.
 //
 
-#import "MineViewController.h"
+#import "AdressSelectViewController.h"
 
-@interface MineViewController ()
+@interface AdressSelectViewController ()
 
 @end
 
-@implementation MineViewController
+@implementation AdressSelectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+
+
+
 }
 
 
