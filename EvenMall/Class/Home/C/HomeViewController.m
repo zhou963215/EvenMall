@@ -21,7 +21,7 @@
 
 #import "AdressSelectViewController.h"
 
-@interface HomeViewController ()<seletedControllerDelegate>
+@interface HomeViewController ()<seletedControllerDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) ScrollView *titleScroll;
 
@@ -55,6 +55,10 @@
         
         
         wk.locationArray = dict[@"data"];
+        wk.chosePoi = wk.locationArray[0];
+        [wk.addressBtn setTitle:wk.chosePoi.name forState:UIControlStateNormal];
+        
+        
         [wk RefreshAES];
         EDULog(@"%@",dict);
         
@@ -138,6 +142,28 @@
     
 }
 
+
+#pragma ScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    NSInteger index = scrollView.contentOffset.x/WIDTH;
+    
+    
+    [_titleScroll changeBtntitleColorWith:index+1000];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    
+    
+    NSInteger index = scrollView.contentOffset.x/WIDTH;
+    
+    
+    [_titleScroll changeBtntitleColorWith:index+1000];
+}
+
+
+
 - (ScrollView *)titleScroll{
     
     if (!_titleScroll) {
@@ -155,8 +181,9 @@
     if (!_mainScroll) {
         
         _mainScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, NavHeight+50, WIDTH, FULL_HEIGHT-50-49)];
-        _mainScroll.contentSize = CGSizeMake(WIDTH*5, 0);
+        _mainScroll.contentSize = CGSizeMake(WIDTH*self.model.data.count, 0);
         _mainScroll.pagingEnabled = YES;
+        _mainScroll.delegate = self;
         [self.view addSubview:_mainScroll];
         
         
@@ -171,7 +198,7 @@
     WEAKSELF(wk);
     _addressBtn = [UIButton buttonWithType: UIButtonTypeCustom];
     _addressBtn.backgroundColor = [UIColor redColor];
-    [_addressBtn setTitle:@"硅谷广场" forState:UIControlStateNormal];
+//    [_addressBtn setTitle:@"硅谷广场" forState:UIControlStateNormal];
     [self.navigationView addSubview:_addressBtn clickCallback:^(UIView *view) {
         
         
@@ -202,6 +229,8 @@
 //    self.articleTag = articel.dataId;
 //    [self refreshData];
     
+    [_mainScroll setContentOffset:CGPointMake(WIDTH * (btn.tag-1000), 0) animated:YES];
+
     [_titleScroll changeBtntitleColorWith:(int)btn.tag];
     
 }

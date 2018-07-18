@@ -126,6 +126,8 @@
             self.loactionCallBack(dict);
         }
         NSLog(@"反地理编码失败");//可注释
+        
+        [self.location startUserLocationService];
     }
 }
 

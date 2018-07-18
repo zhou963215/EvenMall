@@ -50,6 +50,7 @@
 		B45FD34820E2271000BA2540 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FD34320E2271000BA2540 /* Base64.m */; };
 		B45FD34920E2271000BA2540 /* Base64Data.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FD34620E2271000BA2540 /* Base64Data.m */; };
 		B4718F7220F5FCFB00BE69E7 /* AdressSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4718F7120F5FCFB00BE69E7 /* AdressSelectViewController.m */; };
+		B49DBA3F20FC6DD2006DC6D6 /* HomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */; };
 		B4DA6A9820E37D9800B99B83 /* CYLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8C20E37D9700B99B83 /* CYLTabBarController.m */; };
 		B4DA6A9920E37D9800B99B83 /* CYLPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8D20E37D9700B99B83 /* CYLPlusButton.m */; };
 		B4DA6A9A20E37D9800B99B83 /* UIControl+CYLTabBarControllerExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8E20E37D9700B99B83 /* UIControl+CYLTabBarControllerExtention.m */; };
@@ -57,7 +58,6 @@
 		B4DA6A9C20E37D9800B99B83 /* UIViewController+CYLTabBarControllerExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A9120E37D9800B99B83 /* UIViewController+CYLTabBarControllerExtention.m */; };
 		B4DA6A9D20E37D9800B99B83 /* UITabBarItem+CYLTabBarControllerExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A9320E37D9800B99B83 /* UITabBarItem+CYLTabBarControllerExtention.m */; };
 		B4DA6A9E20E37D9800B99B83 /* UIView+CYLTabBarControllerExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A9520E37D9800B99B83 /* UIView+CYLTabBarControllerExtention.m */; };
-		B4DA6AA220E37FDD00B99B83 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6AA120E37FDD00B99B83 /* HomeModel.m */; };
 		B4DA6AA620E3800B00B99B83 /* MembersView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6AA520E3800B00B99B83 /* MembersView.m */; };
 		B4DA6AAA20E3801D00B99B83 /* MembersModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6AA920E3801D00B99B83 /* MembersModel.m */; };
 		B4DA6AAE20E3803500B99B83 /* CarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6AAD20E3803500B99B83 /* CarView.m */; };
@@ -181,6 +181,8 @@
 		B45FD34A20E227B500BA2540 /* EvenMall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EvenMall.entitlements; sourceTree = "<group>"; };
 		B4718F7020F5FCFB00BE69E7 /* AdressSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdressSelectViewController.h; sourceTree = "<group>"; };
 		B4718F7120F5FCFB00BE69E7 /* AdressSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressSelectViewController.m; sourceTree = "<group>"; };
+		B49DBA3D20FC6DD2006DC6D6 /* HomeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListModel.h; sourceTree = "<group>"; };
+		B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListModel.m; sourceTree = "<group>"; };
 		B4DA6A8920E37D9700B99B83 /* CYLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBar.h; sourceTree = "<group>"; };
 		B4DA6A8A20E37D9700B99B83 /* CYLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLConstants.h; sourceTree = "<group>"; };
 		B4DA6A8B20E37D9700B99B83 /* UIControl+CYLTabBarControllerExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+CYLTabBarControllerExtention.h"; sourceTree = "<group>"; };
@@ -196,8 +198,6 @@
 		B4DA6A9520E37D9800B99B83 /* UIView+CYLTabBarControllerExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CYLTabBarControllerExtention.m"; sourceTree = "<group>"; };
 		B4DA6A9620E37D9800B99B83 /* CYLTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBarController.h; sourceTree = "<group>"; };
 		B4DA6A9720E37D9800B99B83 /* UIViewController+CYLTabBarControllerExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CYLTabBarControllerExtention.h"; sourceTree = "<group>"; };
-		B4DA6AA020E37FDD00B99B83 /* HomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
-		B4DA6AA120E37FDD00B99B83 /* HomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
 		B4DA6AA420E3800B00B99B83 /* MembersView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MembersView.h; sourceTree = "<group>"; };
 		B4DA6AA520E3800B00B99B83 /* MembersView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MembersView.m; sourceTree = "<group>"; };
 		B4DA6AA820E3801D00B99B83 /* MembersModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MembersModel.h; sourceTree = "<group>"; };
@@ -532,12 +532,12 @@
 		B4DA6A9F20E37F6900B99B83 /* M */ = {
 			isa = PBXGroup;
 			children = (
-				B4DA6AA020E37FDD00B99B83 /* HomeModel.h */,
-				B4DA6AA120E37FDD00B99B83 /* HomeModel.m */,
 				B4DA6ABE20E4795900B99B83 /* HomeTypeModel.h */,
 				B4DA6ABF20E4795900B99B83 /* HomeTypeModel.m */,
 				B416C2AA20E9C71100431652 /* LocationManger.h */,
 				B416C2AB20E9C71100431652 /* LocationManger.m */,
+				B49DBA3D20FC6DD2006DC6D6 /* HomeListModel.h */,
+				B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -967,10 +967,10 @@
 				B4DA6AAE20E3803500B99B83 /* CarView.m in Sources */,
 				B41B908920D39A0F00A91A36 /* MembersViewController.m in Sources */,
 				B42E4A7520D1172E00EB9447 /* CourseShare.m in Sources */,
-				B4DA6AA220E37FDD00B99B83 /* HomeModel.m in Sources */,
 				B4FF7C0220DB2F67004EF138 /* HomeAnimationViewController.m in Sources */,
 				B42E4A2920D116E200EB9447 /* TAPageControl.m in Sources */,
 				B4718F7220F5FCFB00BE69E7 /* AdressSelectViewController.m in Sources */,
+				B49DBA3F20FC6DD2006DC6D6 /* HomeListModel.m in Sources */,
 				B42E4A6720D1172300EB9447 /* UIView+Controller.m in Sources */,
 				B45FD33520E0EF5A00BA2540 /* NSString+AES.m in Sources */,
 				B4FF7C0520DB3CAF004EF138 /* HomeChildViewController.m in Sources */,

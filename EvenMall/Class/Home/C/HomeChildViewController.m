@@ -12,10 +12,15 @@
 
 #import "LoginViewController.h"
 
+#import "HomeListModel.h"
+
 @interface HomeChildViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
+@property (nonatomic, strong) HomeListModel * listModel;
+
+@property (nonatomic, strong) NSMutableArray * goodsListArray;
 @end
 
 @implementation HomeChildViewController
@@ -39,9 +44,12 @@
     
     [[ZHNetWorking sharedZHNetWorking]POSTAES:3009 parameters:@{@"catId":self.model.catId , @"lng" :@(self.pt.longitude),@"lat" : @(self.pt.latitude) } success:^(id  _Nonnull responseObject) {
         
+        self.listModel = [HomeListModel modelWithDictionary:responseObject[@"data"]];
         
+        [self mergeGoodsList];
         
     } failure:^(NSError * _Nonnull error) {
+        
         
         
         
@@ -54,7 +62,24 @@
 }
 
 
-
+- (void)mergeGoodsList{
+    
+    
+    NSInteger index = 0;
+    
+    for (HomeListCategoryModel * categoryModel in self.listModel.category) {
+        
+        index += categoryModel.goodsList.count;
+        categoryModel.index = index;
+        [self.goodsListArray addObjectsFromArray:categoryModel.goodsList];
+        
+        
+    }
+    
+    
+    [self.tableView reloadData];
+    
+}
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 
@@ -132,10 +157,19 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-//        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
         [_tableView registerNib:[UINib nibWithNibName:@"GoodsTableViewCell" bundle:nil] forCellReuseIdentifier:@"goods"];
     }
     return _tableView;
+}
+
+- (NSMutableArray *)goodsListArray{
+    
+    if (!_goodsListArray) {
+        
+        _goodsListArray = [[NSMutableArray alloc]init];
+    }
+    
+    return _goodsListArray;
 }
 
 
