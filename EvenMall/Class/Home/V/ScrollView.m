@@ -31,7 +31,14 @@
 }
 
 -(void)setHeadArray:(NSMutableArray *)headArray{
+    
+    
     _headArray = headArray;
+    HomeTypeDetailModel * model = [[HomeTypeDetailModel alloc]init];
+    model.catName = @"热门";
+    model.catId = @"0";
+    
+    
     [self createScrollSubView:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 
 }
