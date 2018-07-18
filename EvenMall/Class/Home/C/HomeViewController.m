@@ -19,7 +19,9 @@
 
 #import "LocationManger.h"
 
-@interface HomeViewController ()<seletedControllerDelegate>
+#import "AdressSelectViewController.h"
+
+@interface HomeViewController ()<seletedControllerDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) ScrollView *titleScroll;
 
@@ -36,6 +38,8 @@
 @property (nonatomic, copy) NSArray * locationArray;
 
 @property (nonatomic, strong) NSMutableArray * controllerArray;
+
+@property (nonatomic, strong) UIButton * addressBtn;
 @end
 
 @implementation HomeViewController
@@ -43,7 +47,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
     [self creatNavView];
     _locationManger = [LocationManger shareInstance];
     [_locationManger.location startUserLocationService];
@@ -52,13 +55,17 @@
         
         
         wk.locationArray = dict[@"data"];
-        [wk RefreshAES];
+        wk.chosePoi = wk.locationArray[0];
+        [wk.addressBtn setTitle:wk.chosePoi.name forState:UIControlStateNormal];
+        
+        
+//        [wk RefreshAES];
         EDULog(@"%@",dict);
         
     };
-
-
+    
 }
+
 
 - (void)RefreshAES{
     
@@ -112,11 +119,12 @@
             pt  = CLLocationCoordinate2DMake(0, 0);
         }
         
-        
+        pt  = CLLocationCoordinate2DMake(34.767322, 113.686972);
         for (int i = 0; i < self.model.data.count; i ++) {
             
             HomeTypeDetailModel * model = self.model.data[i];
-            
+            // lng: 113.686972 lat: 34.767322
+
             HomeChildViewController  * vc = [HomeChildViewController new];
             vc.model = model;
             vc.pt = pt;
@@ -128,9 +136,33 @@
         }
         
     }
-       
+    
+    
+   
     
 }
+
+
+#pragma ScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+    NSInteger index = scrollView.contentOffset.x/WIDTH;
+    
+    
+    [_titleScroll changeBtntitleColorWith:index+1000];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    
+    
+    NSInteger index = scrollView.contentOffset.x/WIDTH;
+    
+    
+    [_titleScroll changeBtntitleColorWith:index+1000];
+}
+
+
 
 - (ScrollView *)titleScroll{
     
@@ -149,8 +181,9 @@
     if (!_mainScroll) {
         
         _mainScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, NavHeight+50, WIDTH, FULL_HEIGHT-50-49)];
-        _mainScroll.contentSize = CGSizeMake(WIDTH*5, 0);
+        _mainScroll.contentSize = CGSizeMake(WIDTH*self.model.data.count, 0);
         _mainScroll.pagingEnabled = YES;
+        _mainScroll.delegate = self;
         [self.view addSubview:_mainScroll];
         
         
@@ -162,19 +195,21 @@
 
 - (void)creatNavView{
     
-    UIImageView * imageView = [[UIImageView alloc]init];
-    imageView.backgroundColor = [UIColor redColor];
-    [self.navigationView addSubview:imageView clickCallback:^(UIView *view) {
+    WEAKSELF(wk);
+    _addressBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+    _addressBtn.backgroundColor = [UIColor redColor];
+//    [_addressBtn setTitle:@"硅谷广场" forState:UIControlStateNormal];
+    [self.navigationView addSubview:_addressBtn clickCallback:^(UIView *view) {
         
         
     }];
 
-    WEAKSELF(wk);
-    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_addressBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.centerY.equalTo(wk.navigationView);
-        make.right.equalTo(wk.navigationView.mas_centerX);
-        make.size.mas_equalTo(CGSizeMake(80, 30));
+        make.bottom.equalTo(wk.navigationView).offset(-5);
+        make.centerX.equalTo(wk.navigationView);
+        make.height.mas_equalTo(30);
+//        make.size.mas_equalTo(CGSizeMake(80, 30));
         
         
     }];
@@ -194,6 +229,8 @@
 //    self.articleTag = articel.dataId;
 //    [self refreshData];
     
+    [_mainScroll setContentOffset:CGPointMake(WIDTH * (btn.tag-1000), 0) animated:YES];
+
     [_titleScroll changeBtntitleColorWith:(int)btn.tag];
     
 }

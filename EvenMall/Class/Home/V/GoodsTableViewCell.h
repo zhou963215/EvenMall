@@ -10,8 +10,10 @@
 
 @interface GoodsTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *headImg;
 
 @property (nonatomic, assign) NSInteger count;
+@property (nonatomic, copy) void (^goodsAdd)(BOOL );
 
 
 @end

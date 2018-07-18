@@ -20,6 +20,8 @@
 
 @property (nonatomic, copy) void (^loactionCallBack)(NSDictionary *);
 @property (nonatomic, strong) BMKLocationService * location;
+@property (nonatomic, strong) BMKGeoCodeSearch * geocodesearch;
 
+- (void)searchWith:(NSString *)city keyword:(NSString *)keyword;//根据名称搜索
 
 @end
