@@ -59,7 +59,7 @@
         [wk.addressBtn setTitle:wk.chosePoi.name forState:UIControlStateNormal];
         
         
-        [wk RefreshAES];
+//        [wk RefreshAES];
         EDULog(@"%@",dict);
         
     };

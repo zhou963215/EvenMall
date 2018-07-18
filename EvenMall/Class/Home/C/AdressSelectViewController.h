@@ -10,4 +10,7 @@
 
 @interface AdressSelectViewController : EvenMallBaseViewController
 
+@property (nonatomic, copy) NSArray * locationArray;
+
+
 @end

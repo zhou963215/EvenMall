@@ -11,6 +11,8 @@
 		B416C2AC20E9C71100431652 /* LocationManger.m in Sources */ = {isa = PBXBuildFile; fileRef = B416C2AB20E9C71100431652 /* LocationManger.m */; };
 		B416C2BD20EDAABB00431652 /* GoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B416C2BB20EDAABB00431652 /* GoodsTableViewCell.m */; };
 		B416C2BE20EDAABB00431652 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B416C2BC20EDAABB00431652 /* GoodsTableViewCell.xib */; };
+		B419CD4220FEE24E00E9715C /* AdressRefshTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B419CD4020FEE24E00E9715C /* AdressRefshTableViewCell.m */; };
+		B419CD4320FEE24E00E9715C /* AdressRefshTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B419CD4120FEE24E00E9715C /* AdressRefshTableViewCell.xib */; };
 		B41B906D20D398F800A91A36 /* EMTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B906C20D398F800A91A36 /* EMTabBarControllerConfig.m */; };
 		B41B907720D399B800A91A36 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B907620D399B800A91A36 /* HomeViewController.m */; };
 		B41B908320D399F900A91A36 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B908220D399F900A91A36 /* MineViewController.m */; };
@@ -106,6 +108,9 @@
 		B416C2BA20EDAABB00431652 /* GoodsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsTableViewCell.h; sourceTree = "<group>"; };
 		B416C2BB20EDAABB00431652 /* GoodsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsTableViewCell.m; sourceTree = "<group>"; };
 		B416C2BC20EDAABB00431652 /* GoodsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsTableViewCell.xib; sourceTree = "<group>"; };
+		B419CD3F20FEE24E00E9715C /* AdressRefshTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdressRefshTableViewCell.h; sourceTree = "<group>"; };
+		B419CD4020FEE24E00E9715C /* AdressRefshTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressRefshTableViewCell.m; sourceTree = "<group>"; };
+		B419CD4120FEE24E00E9715C /* AdressRefshTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressRefshTableViewCell.xib; sourceTree = "<group>"; };
 		B41B906B20D398F800A91A36 /* EMTabBarControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMTabBarControllerConfig.h; sourceTree = "<group>"; };
 		B41B906C20D398F800A91A36 /* EMTabBarControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMTabBarControllerConfig.m; sourceTree = "<group>"; };
 		B41B907520D399B800A91A36 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -293,6 +298,9 @@
 				B416C2BA20EDAABB00431652 /* GoodsTableViewCell.h */,
 				B416C2BB20EDAABB00431652 /* GoodsTableViewCell.m */,
 				B416C2BC20EDAABB00431652 /* GoodsTableViewCell.xib */,
+				B419CD3F20FEE24E00E9715C /* AdressRefshTableViewCell.h */,
+				B419CD4020FEE24E00E9715C /* AdressRefshTableViewCell.m */,
+				B419CD4120FEE24E00E9715C /* AdressRefshTableViewCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -821,6 +829,7 @@
 				CBA6F14E20D100D100638342 /* Assets.xcassets in Resources */,
 				B42E4A3520D116F100EB9447 /* hud_error.png in Resources */,
 				CBA6F14C20D100D000638342 /* Main.storyboard in Resources */,
+				B419CD4320FEE24E00E9715C /* AdressRefshTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -922,6 +931,7 @@
 				B42E4A7620D1172E00EB9447 /* EntertainingDiversions.m in Sources */,
 				B42E4A2620D116E200EB9447 /* UIView+SDExtension.m in Sources */,
 				B42E4A2720D116E200EB9447 /* SDCollectionViewCell.m in Sources */,
+				B419CD4220FEE24E00E9715C /* AdressRefshTableViewCell.m in Sources */,
 				B416C2AC20E9C71100431652 /* LocationManger.m in Sources */,
 				B4DA6A9D20E37D9800B99B83 /* UITabBarItem+CYLTabBarControllerExtention.m in Sources */,
 				B4DA6ABA20E3809200B99B83 /* MineModel.m in Sources */,

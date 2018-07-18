@@ -16,7 +16,6 @@
     
 }
 
-@property (nonatomic, strong) BMKGeoCodeSearch * geocodesearch;
 
 @property BOOL isGeoSearch;
 
@@ -69,6 +68,26 @@
         
         self.loactionCallBack(dict);
     }
+    
+}
+
+- (void)searchWith:(NSString *)city keyword:(NSString *)keyword{
+    
+    BMKGeoCodeSearchOption *geocodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
+    geocodeSearchOption.city= @"成都";
+    geocodeSearchOption.address = @"武侯祠";
+    BOOL flag = [_geocodesearch geoCode:geocodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"geo检索发送失败");
+    }
+    
+    
+    
     
 }
 
