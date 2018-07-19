@@ -201,7 +201,8 @@
 //    [_addressBtn setTitle:@"硅谷广场" forState:UIControlStateNormal];
     [self.navigationView addSubview:_addressBtn clickCallback:^(UIView *view) {
         
-        
+        AdressSelectViewController * vc = [AdressSelectViewController new];
+        vc.locationArray = wk.locationArray;
     }];
 
     [_addressBtn mas_makeConstraints:^(MASConstraintMaker *make) {
