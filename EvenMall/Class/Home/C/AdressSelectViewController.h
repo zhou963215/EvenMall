@@ -12,5 +12,5 @@
 
 @property (nonatomic, copy) NSArray * locationArray;
 
-
+@property (nonatomic, copy) NSString * city;
 @end
