@@ -199,10 +199,16 @@
     _addressBtn = [UIButton buttonWithType: UIButtonTypeCustom];
     _addressBtn.backgroundColor = [UIColor redColor];
 //    [_addressBtn setTitle:@"硅谷广场" forState:UIControlStateNormal];
+    
     [self.navigationView addSubview:_addressBtn clickCallback:^(UIView *view) {
         
-        AdressSelectViewController * vc = [AdressSelectViewController new];
+        AdressSelectViewController * vc = [[AdressSelectViewController alloc]init];
+        
         vc.locationArray = wk.locationArray;
+        vc.city = wk.chosePoi.city;
+        [wk.navigationController pushViewController:vc animated:YES];
+        
+        
     }];
 
     [_addressBtn mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -74,9 +74,9 @@
 - (void)searchWith:(NSString *)city keyword:(NSString *)keyword{
     
     BMKGeoCodeSearchOption *geocodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
-    geocodeSearchOption.city= @"成都";
-    geocodeSearchOption.address = @"武侯祠";
-    BOOL flag = [_geocodesearch geoCode:geocodeSearchOption];
+    geocodeSearchOption.city= city;
+    geocodeSearchOption.address = keyword;
+    BOOL flag = [self.geocodesearch geoCode:geocodeSearchOption];
     if(flag)
     {
         NSLog(@"geo检索发送成功");
@@ -206,6 +206,29 @@
     }
     
     
+}
+- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
+    
+    if (error == BMK_SEARCH_NO_ERROR) {
+        NSString *address1 = result.address; // result.addressDetail ///层次化地址信息
+        NSLog(@"我的位置在 %@",address1);
+        
+        BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];//初始化反编码请求
+        reverseGeocodeSearchOption.reverseGeoPoint = result.location;//设置反编码的店为pt
+        BOOL flag = [self.geocodesearch reverseGeoCode:reverseGeocodeSearchOption];//发送反编码请求.并返回是否成功
+        if(flag)
+        {
+            NSLog(@"反geo检索发送成功");
+        }
+        else
+        {
+            NSLog(@"反geo检索发送失败");
+        }
+     
+    
+    
+    
+      }
 }
 
 @end

@@ -13,6 +13,8 @@
 		B416C2BE20EDAABB00431652 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B416C2BC20EDAABB00431652 /* GoodsTableViewCell.xib */; };
 		B419CD4220FEE24E00E9715C /* AdressRefshTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B419CD4020FEE24E00E9715C /* AdressRefshTableViewCell.m */; };
 		B419CD4320FEE24E00E9715C /* AdressRefshTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B419CD4120FEE24E00E9715C /* AdressRefshTableViewCell.xib */; };
+		B419CD4C210077BE00E9715C /* AdressSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B419CD4A210077BE00E9715C /* AdressSearchTableViewCell.m */; };
+		B419CD4D210077BE00E9715C /* AdressSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B419CD4B210077BE00E9715C /* AdressSearchTableViewCell.xib */; };
 		B41B906D20D398F800A91A36 /* EMTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B906C20D398F800A91A36 /* EMTabBarControllerConfig.m */; };
 		B41B907720D399B800A91A36 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B907620D399B800A91A36 /* HomeViewController.m */; };
 		B41B908320D399F900A91A36 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B41B908220D399F900A91A36 /* MineViewController.m */; };
@@ -111,6 +113,9 @@
 		B419CD3F20FEE24E00E9715C /* AdressRefshTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdressRefshTableViewCell.h; sourceTree = "<group>"; };
 		B419CD4020FEE24E00E9715C /* AdressRefshTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressRefshTableViewCell.m; sourceTree = "<group>"; };
 		B419CD4120FEE24E00E9715C /* AdressRefshTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressRefshTableViewCell.xib; sourceTree = "<group>"; };
+		B419CD49210077BE00E9715C /* AdressSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdressSearchTableViewCell.h; sourceTree = "<group>"; };
+		B419CD4A210077BE00E9715C /* AdressSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressSearchTableViewCell.m; sourceTree = "<group>"; };
+		B419CD4B210077BE00E9715C /* AdressSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdressSearchTableViewCell.xib; sourceTree = "<group>"; };
 		B41B906B20D398F800A91A36 /* EMTabBarControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMTabBarControllerConfig.h; sourceTree = "<group>"; };
 		B41B906C20D398F800A91A36 /* EMTabBarControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMTabBarControllerConfig.m; sourceTree = "<group>"; };
 		B41B907520D399B800A91A36 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -301,6 +306,9 @@
 				B419CD3F20FEE24E00E9715C /* AdressRefshTableViewCell.h */,
 				B419CD4020FEE24E00E9715C /* AdressRefshTableViewCell.m */,
 				B419CD4120FEE24E00E9715C /* AdressRefshTableViewCell.xib */,
+				B419CD49210077BE00E9715C /* AdressSearchTableViewCell.h */,
+				B419CD4A210077BE00E9715C /* AdressSearchTableViewCell.m */,
+				B419CD4B210077BE00E9715C /* AdressSearchTableViewCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -820,6 +828,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B416C2BE20EDAABB00431652 /* GoodsTableViewCell.xib in Resources */,
+				B419CD4D210077BE00E9715C /* AdressSearchTableViewCell.xib in Resources */,
 				B42E4A3920D116F100EB9447 /* hud_done@2x.png in Resources */,
 				B42E4A3B20D116F100EB9447 /* hud_done.png in Resources */,
 				B42E4A3720D116F100EB9447 /* hud_error@3x.png in Resources */,
@@ -966,6 +975,7 @@
 				B4DA6AA620E3800B00B99B83 /* MembersView.m in Sources */,
 				B42E4A7920D1176700EB9447 /* ZHNetWorking.m in Sources */,
 				B416C2BD20EDAABB00431652 /* GoodsTableViewCell.m in Sources */,
+				B419CD4C210077BE00E9715C /* AdressSearchTableViewCell.m in Sources */,
 				B42E4A7320D1172E00EB9447 /* LocationAdress.m in Sources */,
 				B41B908320D399F900A91A36 /* MineViewController.m in Sources */,
 				B42E4A7420D1172E00EB9447 /* PublicVoid.m in Sources */,

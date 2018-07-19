@@ -14,13 +14,19 @@
 
 #import "HomeListModel.h"
 
-@interface HomeChildViewController ()<UITableViewDataSource, UITableViewDelegate>
+#import "SDCycleScrollView.h"
+@interface HomeChildViewController ()<UITableViewDataSource, UITableViewDelegate, SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) HomeListModel * listModel;
 
 @property (nonatomic, strong) NSMutableArray * goodsListArray;
+
+@property(nonatomic,strong)SDCycleScrollView *sdcScroll;
+
+@property(nonatomic,strong)NSMutableArray *sdcSoure;
+
 @end
 
 @implementation HomeChildViewController
@@ -28,7 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    _sdcSoure = [[NSMutableArray alloc]init];
+
     [self.view addSubview:self.tableView];
     WEAKSELF(wk);
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -38,7 +45,23 @@
     
 }
 
-
+- (SDCycleScrollView *)sdcScroll{
+    
+    if (!_sdcScroll) {
+        
+        _sdcScroll= [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, WIDTH, 180) imageURLStringsGroup:_sdcSoure];
+        _sdcScroll.autoScrollTimeInterval = 2.5;
+        _sdcScroll.delegate = self;
+        _sdcScroll.pageDotColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+        _sdcScroll.currentPageDotColor = [UIColor whiteColor];
+        _sdcScroll.placeholderImage = [UIImage imageNamed:@"placeholder"];
+        _sdcScroll.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+        
+        
+    }
+    return _sdcScroll;
+    
+}
 - (void)refshData{
     
     
