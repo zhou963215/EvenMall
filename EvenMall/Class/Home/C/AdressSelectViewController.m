@@ -27,6 +27,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:2007 parameters:@{@"isDefault" : @1} success:^(id  _Nonnull responseObject) {
+        
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        
+        
+    }];
+    
+    
+    
+    
     WEAKSELF(wk);
     [self.tableView reloadData];
    _locationManger = [LocationManger shareInstance];

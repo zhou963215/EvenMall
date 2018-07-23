@@ -15,13 +15,13 @@
 
 #import "HomeTypeModel.h"
 
-
+#import <CoreLocation/CoreLocation.h>
 
 #import "LocationManger.h"
 
 #import "AdressSelectViewController.h"
 
-@interface HomeViewController ()<seletedControllerDelegate,UIScrollViewDelegate>
+@interface HomeViewController ()<seletedControllerDelegate,UIScrollViewDelegate,CLLocationManagerDelegate>
 
 @property (nonatomic, strong) ScrollView *titleScroll;
 
@@ -42,13 +42,19 @@
 @property (nonatomic, strong) UIButton * addressBtn;
 
 @property (nonatomic, copy) NSString * city;
+
+@property (nonatomic, strong) CLLocationManager* location;
+
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    _location = [[CLLocationManager alloc]init];
+    _location.delegate = self;
+    
     [self creatNavView];
     _locationManger = [LocationManger shareInstance];
     [_locationManger.location startUserLocationService];
@@ -127,14 +133,14 @@
             
             HomeTypeDetailModel * model = self.model.data[i];
             // lng: 113.686972 lat: 34.767322
-
+            EDULog(@"%d",i);
             HomeChildViewController  * vc = [HomeChildViewController new];
             vc.model = model;
             vc.pt = pt;
             vc.view.frame = CGRectMake(WIDTH * i, 0, WIDTH, self.mainScroll.frame.size.height);
             [self.mainScroll addSubview:vc.view];
             [self addChildViewController:vc];
-            [vc refshData];
+//            [vc refshData];
             
         }
         
@@ -205,14 +211,14 @@
     
     [self.navigationView addSubview:_addressBtn clickCallback:^(UIView *view) {
         
-//        AdressSelectViewController * vc = [[AdressSelectViewController alloc]init];
+        AdressSelectViewController * vc = [[AdressSelectViewController alloc]init];
+
+        vc.locationArray = wk.locationArray;
+        vc.city = wk.city;
+        [wk.navigationController pushViewController:vc animated:YES];
 //
-//        vc.locationArray = wk.locationArray;
-//        vc.city = wk.city;
-//        [wk.navigationController pushViewController:vc animated:YES];
-//
-        LoginViewController * vc = [LoginViewController new];
-        [wk presentViewController:vc animated:YES completion:nil];
+//        LoginViewController * vc = [LoginViewController new];
+//        [wk presentViewController:vc animated:YES completion:nil];
         
     }];
 
@@ -235,17 +241,62 @@
 
 -(void)seletedControllerWith:(UIButton *)btn{
     
-//    [self.dataArray removeAllObjects];
-//    _page = 1;
-//    ArticleDetailTagModel * articel = self.model.datas[btn.tag-1000];
-//    self.articleTag = articel.dataId;
-//    [self refreshData];
     
     [_mainScroll setContentOffset:CGPointMake(WIDTH * (btn.tag-1000), 0) animated:YES];
 
     [_titleScroll changeBtntitleColorWith:(int)btn.tag];
     
 }
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status != kCLAuthorizationStatusNotDetermined) {
+        [_locationManger.location startUserLocationService];
+
+//        [self beginGPS];
+    }
+        switch (status) {
+            case kCLAuthorizationStatusNotDetermined:
+            {
+                NSLog(@"用户还未决定授权");
+                break;
+            }
+            case kCLAuthorizationStatusRestricted:
+            {
+                NSLog(@"访问受限");
+                break;
+            }
+            case kCLAuthorizationStatusDenied:
+            {
+                // 类方法，判断是否开启定位服务
+                if ([CLLocationManager locationServicesEnabled]) {
+                    NSLog(@"定位服务开启，被拒绝");
+                } else {
+                    NSLog(@"定位服务关闭，不可用");
+                }
+                break;
+            }
+            case kCLAuthorizationStatusAuthorizedAlways:
+            {
+                
+                [_locationManger.location startUserLocationService];
+
+                NSLog(@"获得前后台授权");
+                break;
+            }
+            case kCLAuthorizationStatusAuthorizedWhenInUse:
+            {
+                [_locationManger.location startUserLocationService];
+
+                NSLog(@"获得前台授权");
+                break;
+            }
+            default:
+                break;
+        }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 

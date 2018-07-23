@@ -161,6 +161,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
+            LoginViewController * vc = [LoginViewController new];
+            [self presentViewController:vc animated:YES completion:nil];
    
 }
 

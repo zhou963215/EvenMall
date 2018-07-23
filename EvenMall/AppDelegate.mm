@@ -26,8 +26,6 @@ BMKMapManager * _mapManager;
 
 
 
-    EMTabBarControllerConfig * tabBar = [[EMTabBarControllerConfig alloc]init];
-    self.window.rootViewController = tabBar.tabBarController;
 
     _mapManager  = [[BMKMapManager alloc]init];
 
@@ -37,8 +35,10 @@ BMKMapManager * _mapManager;
         
         EDULog(@" manager start failed!");
     }
+   
 
-
+    EMTabBarControllerConfig * tabBar = [[EMTabBarControllerConfig alloc]init];
+    self.window.rootViewController = tabBar.tabBarController;
     return YES;
 }
 

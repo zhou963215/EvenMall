@@ -11,6 +11,7 @@
 #import "CountdownBtn.h"
 #import "EDULoginFiledView.h"
 
+#import "PersonalInformationModel.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 
 
@@ -22,7 +23,7 @@
 @property (nonatomic, strong) EDULoginFiledView * messageCodeView;
 
 
-
+@property (nonatomic, strong) PersonalInformationModel * model;
 
 
 @end
@@ -82,6 +83,33 @@
     [self.view endEditing:YES];
     
    
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:2005 parameters:@{@"phone" : self.userView.value, @"smsCode" : self.messageCodeView.value} success:^(id  _Nonnull responseObject) {
+        
+        
+        self.model = [PersonalInformationModel modelWithDictionary:responseObject];
+        
+        if (self.model.resultCode ==200) {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+        }else{
+            
+            
+            [ZHHud initWithMessage:self.model.msg];
+            
+        }
+        
+        
+        
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        
+        
+    }];
+    
+    
+    
     
     
 }
@@ -143,10 +171,10 @@
     if (!_submitBtn) {
         _submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_submitBtn setTitle:@"登录" forState:UIControlStateNormal];
-        _submitBtn.enabled = NO;
+//        _submitBtn.enabled = NO;
         [_submitBtn setTitleColor:RGB(255, 255, 255) forState:UIControlStateNormal];
         _submitBtn.titleLabel.font = [UIFont systemFontOfSize:18];
-        [_submitBtn setBackgroundColor:UICOLORRGB(0xc3c9d0)];
+        [_submitBtn setBackgroundColor:RGB(251, 89, 91)];
         _submitBtn.layer.masksToBounds = YES;
         _submitBtn.layer.cornerRadius = 5;
         [_submitBtn addTarget:self action:@selector(submitLogin) forControlEvents:UIControlEventTouchUpInside];
