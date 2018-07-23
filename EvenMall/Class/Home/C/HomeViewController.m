@@ -40,6 +40,8 @@
 @property (nonatomic, strong) NSMutableArray * controllerArray;
 
 @property (nonatomic, strong) UIButton * addressBtn;
+
+@property (nonatomic, copy) NSString * city;
 @end
 
 @implementation HomeViewController
@@ -56,10 +58,11 @@
         
         wk.locationArray = dict[@"data"];
         wk.chosePoi = wk.locationArray[0];
+        wk.city  = dict[@"city"];
         [wk.addressBtn setTitle:wk.chosePoi.name forState:UIControlStateNormal];
         
         
-//        [wk RefreshAES];
+        [wk RefreshAES];
         EDULog(@"%@",dict);
         
     };
@@ -202,12 +205,14 @@
     
     [self.navigationView addSubview:_addressBtn clickCallback:^(UIView *view) {
         
-        AdressSelectViewController * vc = [[AdressSelectViewController alloc]init];
-        
-        vc.locationArray = wk.locationArray;
-        vc.city = wk.chosePoi.city;
-        [wk.navigationController pushViewController:vc animated:YES];
-        
+//        AdressSelectViewController * vc = [[AdressSelectViewController alloc]init];
+//
+//        vc.locationArray = wk.locationArray;
+//        vc.city = wk.city;
+//        [wk.navigationController pushViewController:vc animated:YES];
+//
+        LoginViewController * vc = [LoginViewController new];
+        [wk presentViewController:vc animated:YES completion:nil];
         
     }];
 

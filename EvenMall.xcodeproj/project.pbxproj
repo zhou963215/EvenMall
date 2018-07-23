@@ -73,6 +73,7 @@
 		B4FF7C0220DB2F67004EF138 /* HomeAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FF7C0120DB2F67004EF138 /* HomeAnimationViewController.m */; };
 		B4FF7C0520DB3CAF004EF138 /* HomeChildViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FF7C0420DB3CAF004EF138 /* HomeChildViewController.m */; };
 		B4FF7C0820DB412E004EF138 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4FF7C0720DB412E004EF138 /* ScrollView.m */; };
+		CB74E2132104522C00A80E62 /* EDULoginFiledView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB74E2122104522C00A80E62 /* EDULoginFiledView.m */; };
 		CBA6F14620D100D000638342 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = CBA6F14520D100D000638342 /* AppDelegate.mm */; };
 		CBA6F14920D100D000638342 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBA6F14820D100D000638342 /* ViewController.m */; };
 		CBA6F14C20D100D000638342 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA6F14A20D100D000638342 /* Main.storyboard */; };
@@ -230,6 +231,8 @@
 		B4FF7C0420DB3CAF004EF138 /* HomeChildViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeChildViewController.m; sourceTree = "<group>"; };
 		B4FF7C0620DB412E004EF138 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
 		B4FF7C0720DB412E004EF138 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
+		CB74E2112104522C00A80E62 /* EDULoginFiledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDULoginFiledView.h; sourceTree = "<group>"; };
+		CB74E2122104522C00A80E62 /* EDULoginFiledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDULoginFiledView.m; sourceTree = "<group>"; };
 		CBA6F14120D100D000638342 /* EvenMall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EvenMall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBA6F14420D100D000638342 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CBA6F14520D100D000638342 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
@@ -695,6 +698,8 @@
 			children = (
 				CBC9578420E27602005CB6A8 /* LoginViewController.h */,
 				CBC9578520E27602005CB6A8 /* LoginViewController.m */,
+				CB74E2112104522C00A80E62 /* EDULoginFiledView.h */,
+				CB74E2122104522C00A80E62 /* EDULoginFiledView.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -728,7 +733,7 @@
 				CBA6F13E20D100D000638342 /* Frameworks */,
 				CBA6F13F20D100D000638342 /* Resources */,
 				5E95C1720DA6C04C3875B5E0 /* [CP] Embed Pods Frameworks */,
-				0A4BEE67374D6D10E26D8B8F /* [CP] Copy Pods Resources */,
+				6C59E2B110D039C786A773B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -859,24 +864,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A4BEE67374D6D10E26D8B8F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-EvenMall/Pods-EvenMall-resources.sh",
-				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EvenMall/Pods-EvenMall-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		25D8AE334224131C958BA384 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -927,6 +914,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EvenMall/Pods-EvenMall-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6C59E2B110D039C786A773B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EvenMall/Pods-EvenMall-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EvenMall/Pods-EvenMall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -959,6 +964,7 @@
 				B42E4A1420D116D000EB9447 /* CountdownBtn.m in Sources */,
 				B42E4A2820D116E200EB9447 /* TADotView.m in Sources */,
 				B42E4A6420D1172300EB9447 /* UIColor+YVAdd.m in Sources */,
+				CB74E2132104522C00A80E62 /* EDULoginFiledView.m in Sources */,
 				B45FD33820E0EFBA00BA2540 /* NSData+AES.m in Sources */,
 				B4DA6A9820E37D9800B99B83 /* CYLTabBarController.m in Sources */,
 				B45FD34820E2271000BA2540 /* Base64.m in Sources */,
@@ -1168,8 +1174,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = EvenMall/EvenMall.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M2VJ58BVAA;
+				DEVELOPMENT_TEAM = MN4M5D58QH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EvenMall/PrefixHeader.pch";
 				INFOPLIST_FILE = EvenMall/Info.plist;
@@ -1180,6 +1187,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhou.EvenMall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1190,8 +1198,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = EvenMall/EvenMall.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M2VJ58BVAA;
+				DEVELOPMENT_TEAM = MN4M5D58QH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EvenMall/PrefixHeader.pch";
 				INFOPLIST_FILE = EvenMall/Info.plist;
@@ -1202,6 +1211,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhou.EvenMall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

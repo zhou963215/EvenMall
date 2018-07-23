@@ -127,8 +127,8 @@
     coor.latitude = [latitude doubleValue];
     coor.longitude = [longitude doubleValue];
     
-    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc] init];
-    reverseGeocodeSearchOption.reverseGeoPoint = coor;
+    BMKReverseGeoCodeSearchOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeSearchOption alloc] init];
+    reverseGeocodeSearchOption.location = coor;
     BOOL flag = [self.geocodesearch reverseGeoCode:reverseGeocodeSearchOption];;
     if (flag)
     {
@@ -165,8 +165,8 @@
             _location.userLocation.location.coordinate.longitude};
     }
     
-    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];//初始化反编码请求
-    reverseGeocodeSearchOption.reverseGeoPoint = pt;//设置反编码的店为pt
+    BMKReverseGeoCodeSearchOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeSearchOption alloc] init];
+    reverseGeocodeSearchOption.location = pt ;
     BOOL flag = [self.geocodesearch reverseGeoCode:reverseGeocodeSearchOption];//发送反编码请求.并返回是否成功
     if(flag)
     {
@@ -181,7 +181,7 @@
 
 //发送成功,百度将会返回东西给你
 -(void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher
-                          result:(BMKReverseGeoCodeResult *)result
+                          result:(BMKReverseGeoCodeSearchResult *)result
                        errorCode:(BMKSearchErrorCode)error
 {
     
@@ -191,7 +191,7 @@
         
         if (self.location) {
             
-            NSDictionary * dict = @{@"isFinish" : @(YES) ,@"data" : result.poiList};
+            NSDictionary * dict = @{@"isFinish" : @(YES) ,@"data" : result.poiList, @"city" : result.addressDetail.city};
             
             
             self.loactionCallBack(dict);
@@ -207,14 +207,12 @@
     
     
 }
-- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
+- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeSearchResult *)result errorCode:(BMKSearchErrorCode)error{
     
     if (error == BMK_SEARCH_NO_ERROR) {
-        NSString *address1 = result.address; // result.addressDetail ///层次化地址信息
-        NSLog(@"我的位置在 %@",address1);
         
-        BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];//初始化反编码请求
-        reverseGeocodeSearchOption.reverseGeoPoint = result.location;//设置反编码的店为pt
+        BMKReverseGeoCodeSearchOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeSearchOption alloc] init];
+        reverseGeocodeSearchOption.location = result.location;
         BOOL flag = [self.geocodesearch reverseGeoCode:reverseGeocodeSearchOption];//发送反编码请求.并返回是否成功
         if(flag)
         {

@@ -36,12 +36,8 @@
 
     _sdcSoure = [[NSMutableArray alloc]init];
 
-    [self.view addSubview:self.tableView];
-    WEAKSELF(wk);
-    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.top.bottom.left.right.equalTo(wk.view);
-    }];
+    self.tableView.tableHeaderView = self.sdcScroll;
+    [self refshData];
     
 }
 
@@ -181,6 +177,13 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:@"GoodsTableViewCell" bundle:nil] forCellReuseIdentifier:@"goods"];
+        [self.view addSubview:self.tableView];
+        
+        WEAKSELF(wk);
+        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+            
+            make.top.bottom.left.right.equalTo(wk.view);
+        }];
     }
     return _tableView;
 }
