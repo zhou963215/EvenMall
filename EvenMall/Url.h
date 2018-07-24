@@ -9,7 +9,7 @@
 #ifndef Url_h
 #define Url_h
 
-#define BASE_URL     @"http://okzyl.cn:7878/api"
+#define BASE_URL     @"http://jibianapp.com:7878/api"
 
 
 

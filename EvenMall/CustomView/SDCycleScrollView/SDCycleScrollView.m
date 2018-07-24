@@ -35,7 +35,7 @@
 #import "TAPageControl.h"
 #import "SDWebImageManager.h"
 #import "UIImageView+WebCache.h"
-
+#import "HomeListModel.h"
 #define kCycleScrollViewInitialPageControlDotSize CGSizeMake(10, 10)
 
 NSString * const ID = @"SDCycleScrollViewCell";
@@ -319,12 +319,12 @@ NSString * const ID = @"SDCycleScrollViewCell";
     _imageURLStringsGroup = imageURLStringsGroup;
     
     NSMutableArray *temp = [NSMutableArray new];
-    [_imageURLStringsGroup enumerateObjectsUsingBlock:^(NSString * obj, NSUInteger idx, BOOL * stop) {
+    [_imageURLStringsGroup enumerateObjectsUsingBlock:^(HomeListBannerModel * obj, NSUInteger idx, BOOL * stop) {
         NSString *urlString;
-        if ([obj isKindOfClass:[NSString class]]) {
-            urlString = obj;
-        } else if ([obj isKindOfClass:[NSURL class]]) {
-            NSURL *url = (NSURL *)obj;
+        if ([obj.banner_img isKindOfClass:[NSString class]]) {
+            urlString = obj.banner_img;
+        } else if ([obj.banner_img isKindOfClass:[NSURL class]]) {
+            NSURL *url = (NSURL *)obj.banner_img;
             urlString = [url absoluteString];
         }
         if (urlString) {
