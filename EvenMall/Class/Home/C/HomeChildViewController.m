@@ -94,7 +94,7 @@
         
         
     }
-    
+    self.sdcScroll.imageURLStringsGroup = self.listModel.banner;
     
     [self.tableView reloadData];
     
@@ -106,7 +106,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.goodsListArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,6 +115,7 @@
     GoodsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"goods"];
     
     cell.count = 0;
+    cell.model = self.goodsListArray[indexPath.row];
     WEAKSELF(wk);
     __weak GoodsTableViewCell * good = cell;
     cell.goodsAdd = ^(BOOL isAdd) {

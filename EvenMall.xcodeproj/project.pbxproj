@@ -1176,7 +1176,7 @@
 				CODE_SIGN_ENTITLEMENTS = EvenMall/EvenMall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MN4M5D58QH;
+				DEVELOPMENT_TEAM = M2VJ58BVAA;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EvenMall/PrefixHeader.pch";
 				INFOPLIST_FILE = EvenMall/Info.plist;
@@ -1200,7 +1200,7 @@
 				CODE_SIGN_ENTITLEMENTS = EvenMall/EvenMall.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MN4M5D58QH;
+				DEVELOPMENT_TEAM = M2VJ58BVAA;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/EvenMall/PrefixHeader.pch";
 				INFOPLIST_FILE = EvenMall/Info.plist;
