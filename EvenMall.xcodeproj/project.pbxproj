@@ -54,6 +54,7 @@
 		B45FD34820E2271000BA2540 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FD34320E2271000BA2540 /* Base64.m */; };
 		B45FD34920E2271000BA2540 /* Base64Data.m in Sources */ = {isa = PBXBuildFile; fileRef = B45FD34620E2271000BA2540 /* Base64Data.m */; };
 		B4718F7220F5FCFB00BE69E7 /* AdressSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4718F7120F5FCFB00BE69E7 /* AdressSelectViewController.m */; };
+		B478BE2A2105DD2C0045EDC5 /* PersonalInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B478BE292105DD2C0045EDC5 /* PersonalInformationModel.m */; };
 		B49DBA3F20FC6DD2006DC6D6 /* HomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */; };
 		B4DA6A9820E37D9800B99B83 /* CYLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8C20E37D9700B99B83 /* CYLTabBarController.m */; };
 		B4DA6A9920E37D9800B99B83 /* CYLPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8D20E37D9700B99B83 /* CYLPlusButton.m */; };
@@ -192,6 +193,8 @@
 		B45FD34A20E227B500BA2540 /* EvenMall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EvenMall.entitlements; sourceTree = "<group>"; };
 		B4718F7020F5FCFB00BE69E7 /* AdressSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdressSelectViewController.h; sourceTree = "<group>"; };
 		B4718F7120F5FCFB00BE69E7 /* AdressSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressSelectViewController.m; sourceTree = "<group>"; };
+		B478BE282105DD2C0045EDC5 /* PersonalInformationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalInformationModel.h; sourceTree = "<group>"; };
+		B478BE292105DD2C0045EDC5 /* PersonalInformationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationModel.m; sourceTree = "<group>"; };
 		B49DBA3D20FC6DD2006DC6D6 /* HomeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListModel.h; sourceTree = "<group>"; };
 		B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListModel.m; sourceTree = "<group>"; };
 		B4DA6A8920E37D9700B99B83 /* CYLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBar.h; sourceTree = "<group>"; };
@@ -700,6 +703,8 @@
 				CBC9578520E27602005CB6A8 /* LoginViewController.m */,
 				CB74E2112104522C00A80E62 /* EDULoginFiledView.h */,
 				CB74E2122104522C00A80E62 /* EDULoginFiledView.m */,
+				B478BE282105DD2C0045EDC5 /* PersonalInformationModel.h */,
+				B478BE292105DD2C0045EDC5 /* PersonalInformationModel.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -977,6 +982,7 @@
 				B42E4A2520D116E200EB9447 /* SDCycleScrollView.m in Sources */,
 				B4DA6AC020E4795900B99B83 /* HomeTypeModel.m in Sources */,
 				B42E4A3620D116F100EB9447 /* ZHHud.m in Sources */,
+				B478BE2A2105DD2C0045EDC5 /* PersonalInformationModel.m in Sources */,
 				CBC9578620E27602005CB6A8 /* LoginViewController.m in Sources */,
 				B4DA6AA620E3800B00B99B83 /* MembersView.m in Sources */,
 				B42E4A7920D1176700EB9447 /* ZHNetWorking.m in Sources */,

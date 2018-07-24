@@ -274,8 +274,22 @@
         return;
     }
 //
-//    NSString * usetype = _type == 1 ? @"reg" :@"retrieve";
-    
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:9001 parameters:@{@"phone" : self.phone} success:^(id  _Nonnull responseObject) {
+        
+        
+        NSDictionary * dict =responseObject;
+        
+        if ([dict[@"resultCode"]intValue] == 200) {
+            
+            
+            [ZHHud initWithMessage:@"发送成功"];
+        }
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        
+        
+    }];
    
     
 }
