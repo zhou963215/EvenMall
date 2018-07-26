@@ -7,7 +7,7 @@
 //
 
 #import "GoodsTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface GoodsTableViewCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLB;
@@ -42,6 +42,18 @@
 
 }
 
+
+- (void) setModel:(HomeListGoodsModel *)model{
+    
+    _model = model;
+    
+    _nameLB.text = _model.goodsName;
+    _contentLB.text = _model.goodsTips;
+    _price.text = _model.marketPrice;
+    _memberPrice.text = _model.vipPrice;
+    
+    [_headImg sd_setImageWithURL:[NSURL URLWithString:_model.goodAdPic] completed:nil];
+}
 
 
 - (void)setCount:(NSInteger)count{

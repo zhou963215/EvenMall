@@ -15,7 +15,11 @@
 #import "HomeListModel.h"
 
 #import "SDCycleScrollView.h"
-@interface HomeChildViewController ()<UITableViewDataSource, UITableViewDelegate, SDCycleScrollViewDelegate>
+
+#import "GoodsHeadCollectionViewCell.h"
+
+#import "GoodDetailViewController.h"
+@interface HomeChildViewController ()<UITableViewDataSource, UITableViewDelegate, SDCycleScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -23,9 +27,11 @@
 
 @property (nonatomic, strong) NSMutableArray * goodsListArray;
 
-@property(nonatomic,strong)SDCycleScrollView *sdcScroll;
+@property (nonatomic ,strong) SDCycleScrollView *sdcScroll;
 
-@property(nonatomic,strong)NSMutableArray *sdcSoure;
+@property(nonatomic, strong) NSMutableArray *sdcSoure;
+
+@property (nonatomic, strong) UICollectionView * collectionView;
 
 @end
 
@@ -85,16 +91,26 @@
     
     
     NSInteger index = 0;
-    
+    NSInteger lastIndex = 0;
     for (HomeListCategoryModel * categoryModel in self.listModel.category) {
         
-        index += categoryModel.goodsList.count;
+        index += lastIndex;
+        lastIndex = categoryModel.goodsList.count;
         categoryModel.index = index;
         [self.goodsListArray addObjectsFromArray:categoryModel.goodsList];
         
         
     }
-    self.sdcScroll.imageURLStringsGroup = self.listModel.banner;
+    
+    NSMutableArray  * imageArray = [[NSMutableArray alloc]init];
+    
+    for (HomeListBannerModel * banner in self.listModel.banner) {
+        
+        
+        [imageArray addObject:@"http://c.hiphotos.baidu.com/image/pic/item/a5c27d1ed21b0ef4b129b3b9d1c451da80cb3e17.jpg"];
+        
+    }
+    self.sdcScroll.imageURLStringsGroup = [imageArray mutableCopy];;
     
     [self.tableView reloadData];
     
@@ -162,8 +178,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
-            LoginViewController * vc = [LoginViewController new];
-            [self presentViewController:vc animated:YES completion:nil];
+//            LoginViewController * vc = [LoginViewController new];
+//            [self presentViewController:vc animated:YES completion:nil];
+    
+    
+    [self.navigationController pushViewController:[GoodDetailViewController new] animated:YES];
    
 }
 
@@ -173,6 +192,31 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    
+    if([self.model.catId isEqualToString:@"0"]){
+        
+        return 0.1;
+    }
+    return 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    if (![self.model.catId isEqualToString:@"0"]) {
+        
+        [self.collectionView reloadData];
+        
+        return self.collectionView;
+    }
+    
+    
+    return nil;
+}
+
+
+#pragma SDCycleScrollViewDelegate
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     
@@ -181,6 +225,62 @@
     
     
 }
+
+
+#pragma UICollectionViewDelegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+
+    return CGSizeMake(20, 40);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section{
+    
+    return CGSizeMake(20, 40);
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+     HomeListCategoryModel * category= self.listModel.category[indexPath.row];
+    
+    CGFloat width = [self widthForLabel:[NSString stringWithFormat:@"%@",category.catName] fontSize:12];
+    return CGSizeMake(width+40,20);
+}
+//计算问题宽度
+- (CGFloat)widthForLabel:(NSString *)text fontSize:(CGFloat)font
+{
+    CGSize size = [text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:font], NSFontAttributeName, nil]];
+    
+    return size.width;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    
+   
+    return self.listModel.category.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    HomeListCategoryModel * category= self.listModel.category[indexPath.row];
+
+    GoodsHeadCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"head" forIndexPath:indexPath];
+    cell.nameLB.text = category.catName;
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    HomeListCategoryModel * category= self.listModel.category[indexPath.row];
+    NSIndexPath* indexPat = [NSIndexPath indexPathForRow:category.index inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPat atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+}
+
+#pragma 懒加载
 
 - (UITableView *)tableView {
     
@@ -200,6 +300,28 @@
     }
     return _tableView;
 }
+
+- (UICollectionView *)collectionView{
+    
+    if (!_collectionView) {
+        
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 10;
+        flowLayout.minimumInteritemSpacing = 5;
+        flowLayout.scrollDirection  = UICollectionViewScrollDirectionHorizontal;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(20, 0,WIDTH-40,40) collectionViewLayout:flowLayout];
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        [_collectionView setBackgroundColor:[UIColor whiteColor]];
+        //注册
+        [_collectionView registerNib:[UINib nibWithNibName:@"GoodsHeadCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"head"];
+        
+    }
+    
+    return _collectionView;
+}
+
 
 - (NSMutableArray *)goodsListArray{
     

@@ -1,13 +1,13 @@
 //
-//  CarView.h
+//  GDMemberCell.h
 //  EvenMall
 //
-//  Created by xuechuan on 2018/6/27.
+//  Created by xuechuan on 2018/7/26.
 //  Copyright © 2018年 zhou. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CarView : UIView
+@interface GDMemberCell : UITableViewCell
 
 @end

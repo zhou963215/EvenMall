@@ -59,20 +59,20 @@
     _locationManger = [LocationManger shareInstance];
     [_locationManger.location startUserLocationService];
     WEAKSELF(wk);
-    _locationManger.loactionCallBack = ^(NSDictionary * dict) {
-        
-        
-        wk.locationArray = dict[@"data"];
-        wk.chosePoi = wk.locationArray[0];
-        wk.city  = dict[@"city"];
-        [wk.addressBtn setTitle:wk.chosePoi.name forState:UIControlStateNormal];
-        
-        
-        [wk RefreshAES];
-        EDULog(@"%@",dict);
-        
-    };
-    
+//    _locationManger.loactionCallBack = ^(NSDictionary * dict) {
+//
+//
+//        wk.locationArray = dict[@"data"];
+//        wk.chosePoi = wk.locationArray[0];
+//        wk.city  = dict[@"city"];
+//        [wk.addressBtn setTitle:wk.chosePoi.name forState:UIControlStateNormal];
+//
+//
+//        EDULog(@"%@",dict);
+//
+//    };
+    [wk RefreshAES];
+
 }
 
 
