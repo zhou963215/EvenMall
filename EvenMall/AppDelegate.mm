@@ -12,9 +12,12 @@
 
 #import "EMTabBarControllerConfig.h"
 
+#import "LoginNewViewController.h"
 BMKMapManager * _mapManager;
 
-@interface AppDelegate ()<BMKGeneralDelegate>
+@interface AppDelegate ()<BMKGeneralDelegate,UITabBarControllerDelegate,CYLTabBarControllerDelegate>
+
+@property (nonatomic, strong) EMTabBarControllerConfig * tabBar ;
 
 @end
 
@@ -37,11 +40,35 @@ BMKMapManager * _mapManager;
     }
    
 
-    EMTabBarControllerConfig * tabBar = [[EMTabBarControllerConfig alloc]init];
-    self.window.rootViewController = tabBar.tabBarController;
+    _tabBar = [[EMTabBarControllerConfig alloc]init];
+    _tabBar.tabBarController.delegate = self;
+    self.window.rootViewController = _tabBar.tabBarController;
     return YES;
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectControl:(UIControl *)control{
+
+    if ( [self cyl_tabBarController].selectedIndex==2) {
+        
+        [[self cyl_tabBarController]setSelectedIndex:0];
+        [[self cyl_tabBarController].selectedViewController presentViewController:[LoginNewViewController new] animated:YES completion:nil];
+    }
+
+
+
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    
+    if (tabBarController.selectedIndex ==2) {
+        
+        return NO;
+    }
+    [[self cyl_tabBarController] updateSelectionStatusIfNeededForTabBarController:tabBarController shouldSelectViewController:viewController];
+
+    
+    return YES;
+}
 
 - (void)onGetNetworkState:(int)iError{
     

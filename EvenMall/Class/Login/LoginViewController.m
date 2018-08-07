@@ -36,6 +36,12 @@
     self.navigationView.titleLabel.text = @"登录";
     [self creatSubViews];
  
+    WEAKSELF(wk);
+    [self.navigationView addLeftButtonWithTitle:@"退出" clickCallBack:^(UIView *view) {
+        
+        [wk dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
     
   
 

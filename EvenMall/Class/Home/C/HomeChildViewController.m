@@ -11,6 +11,7 @@
 #import "GoodsTableViewCell.h"
 
 #import "LoginViewController.h"
+#import "LoginNewViewController.h"
 
 #import "HomeListModel.h"
 
@@ -178,11 +179,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
-//            LoginViewController * vc = [LoginViewController new];
-//            [self presentViewController:vc animated:YES completion:nil];
+            LoginViewController * vc = [LoginViewController new];
+            [self presentViewController:vc animated:YES completion:nil];
     
     
-    [self.navigationController pushViewController:[GoodDetailViewController new] animated:YES];
+//    [self.navigationController pushViewController:[GoodDetailViewController new] animated:YES];
    
 }
 

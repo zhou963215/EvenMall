@@ -94,12 +94,10 @@
     
     
     
-    [[ZHNetWorking sharedZHNetWorking]POSTAES:3001 parameters:@{} success:^(id  _Nonnull responseObject) {
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:3011 parameters:@{@"lng" :@(34.767322),@"lat" : @(113.686972)} success:^(id  _Nonnull responseObject) {
         
         
-        self.model = [HomeTypeModel modelWithDictionary:responseObject];
-        self.titleScroll.headArray = [[NSMutableArray alloc]initWithArray:self.model.data];
-        [self chlidViewAdd];
+        
         
         
     } failure:^(NSError * _Nonnull error) {

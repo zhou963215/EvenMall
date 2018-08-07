@@ -49,6 +49,10 @@
 }
 
 
+
+
+
+
 - (NSArray *)viewControllers {
     HomeViewController *firstViewController = [[HomeViewController alloc] init];
     //    firstViewController.navigationItem.title = @"首页";
@@ -97,18 +101,18 @@
                                                  };
     NSDictionary *secondTabBarItemsAttributes = @{
                                                   CYLTabBarItemTitle : @"会员",
-                                                  CYLTabBarItemImage : @"q_n",
-                                                  CYLTabBarItemSelectedImage : @"q_s",
+                                                  CYLTabBarItemImage : @"members_n",
+                                                  CYLTabBarItemSelectedImage : @"members_s",
                                                   };
     NSDictionary *thirdTabBarItemsAttributes = @{
                                                  CYLTabBarItemTitle : @"购物车",
-                                                 CYLTabBarItemImage : @"shopCart",
-                                                 CYLTabBarItemSelectedImage : @"shopCart",
+                                                 CYLTabBarItemImage : @"car_n",
+                                                 CYLTabBarItemSelectedImage : @"car_s",
                                                  };
     NSDictionary *fourthTabBarItemsAttributes = @{
                                                   CYLTabBarItemTitle : @"我的",
-                                                  CYLTabBarItemImage : @"m_n",
-                                                  CYLTabBarItemSelectedImage : @"m_s"
+                                                  CYLTabBarItemImage : @"mine_n",
+                                                  CYLTabBarItemSelectedImage : @"mine_s"
                                                   };
     NSArray *tabBarItemsAttributes = @[
                                        firstTabBarItemsAttributes,

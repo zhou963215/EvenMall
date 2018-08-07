@@ -70,6 +70,8 @@
 		B478BE6C2109AA9F0045EDC5 /* GDMTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B478BE6A2109AA9F0045EDC5 /* GDMTableViewCell.xib */; };
 		B478BE702109AC780045EDC5 /* RecommendedCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B478BE6E2109AC780045EDC5 /* RecommendedCollectionCell.m */; };
 		B478BE712109AC780045EDC5 /* RecommendedCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B478BE6F2109AC780045EDC5 /* RecommendedCollectionCell.xib */; };
+		B494B7682117E61200197564 /* LoginNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B494B7662117E61200197564 /* LoginNewViewController.m */; };
+		B494B7692117E61200197564 /* LoginNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B494B7672117E61200197564 /* LoginNewViewController.xib */; };
 		B49DBA3F20FC6DD2006DC6D6 /* HomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */; };
 		B4DA6A9820E37D9800B99B83 /* CYLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8C20E37D9700B99B83 /* CYLTabBarController.m */; };
 		B4DA6A9920E37D9800B99B83 /* CYLPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8D20E37D9700B99B83 /* CYLPlusButton.m */; };
@@ -232,6 +234,9 @@
 		B478BE6D2109AC780045EDC5 /* RecommendedCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendedCollectionCell.h; sourceTree = "<group>"; };
 		B478BE6E2109AC780045EDC5 /* RecommendedCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecommendedCollectionCell.m; sourceTree = "<group>"; };
 		B478BE6F2109AC780045EDC5 /* RecommendedCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendedCollectionCell.xib; sourceTree = "<group>"; };
+		B494B7652117E61200197564 /* LoginNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginNewViewController.h; sourceTree = "<group>"; };
+		B494B7662117E61200197564 /* LoginNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginNewViewController.m; sourceTree = "<group>"; };
+		B494B7672117E61200197564 /* LoginNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginNewViewController.xib; sourceTree = "<group>"; };
 		B49DBA3D20FC6DD2006DC6D6 /* HomeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListModel.h; sourceTree = "<group>"; };
 		B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListModel.m; sourceTree = "<group>"; };
 		B4DA6A8920E37D9700B99B83 /* CYLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBar.h; sourceTree = "<group>"; };
@@ -761,6 +766,9 @@
 				CB74E2122104522C00A80E62 /* EDULoginFiledView.m */,
 				B478BE282105DD2C0045EDC5 /* PersonalInformationModel.h */,
 				B478BE292105DD2C0045EDC5 /* PersonalInformationModel.m */,
+				B494B7652117E61200197564 /* LoginNewViewController.h */,
+				B494B7662117E61200197564 /* LoginNewViewController.m */,
+				B494B7672117E61200197564 /* LoginNewViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -894,6 +902,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B416C2BE20EDAABB00431652 /* GoodsTableViewCell.xib in Resources */,
+				B494B7692117E61200197564 /* LoginNewViewController.xib in Resources */,
 				B478BE5D210962F40045EDC5 /* GDHTableViewCell.xib in Resources */,
 				B419CD4D210077BE00E9715C /* AdressSearchTableViewCell.xib in Resources */,
 				B42E4A3920D116F100EB9447 /* hud_done@2x.png in Resources */,
@@ -1040,6 +1049,7 @@
 				B45FD33820E0EFBA00BA2540 /* NSData+AES.m in Sources */,
 				B4DA6A9820E37D9800B99B83 /* CYLTabBarController.m in Sources */,
 				B45FD34820E2271000BA2540 /* Base64.m in Sources */,
+				B494B7682117E61200197564 /* LoginNewViewController.m in Sources */,
 				B4DA6ABD20E463D100B99B83 /* EvenMallBaseModel.m in Sources */,
 				B4DA6A9E20E37D9800B99B83 /* UIView+CYLTabBarControllerExtention.m in Sources */,
 				B42E4A6620D1172300EB9447 /* UITableView+EmptyData.m in Sources */,

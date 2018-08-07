@@ -22,6 +22,14 @@
 
 @implementation CarViewController
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    
+    [super viewWillAppear:animated];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -35,7 +43,20 @@
 }
 
 
-
+- (void)requestData{
+    
+    
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:5001 parameters:@{} success:^(id  _Nonnull responseObject) {
+        
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        
+    }];
+    
+    
+    
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
