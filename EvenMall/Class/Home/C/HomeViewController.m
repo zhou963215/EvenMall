@@ -21,6 +21,8 @@
 
 #import "AdressSelectViewController.h"
 
+#import "HomeModel.h"
+
 @interface HomeViewController ()<seletedControllerDelegate,UIScrollViewDelegate,CLLocationManagerDelegate>
 
 @property (nonatomic, strong) ScrollView *titleScroll;
@@ -93,11 +95,12 @@
 - (void)requestType{
     
     
-    
-    [[ZHNetWorking sharedZHNetWorking]POSTAES:3011 parameters:@{@"lng" :@(34.767322),@"lat" : @(113.686972)} success:^(id  _Nonnull responseObject) {
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:3011 parameters:@{@"lng" :@(113.686972),@"lat" : @(34.767322)} success:^(id  _Nonnull responseObject) {
         
         
+        HomeModel * model = [HomeModel modelWithDictionary:responseObject[@"data"]];
         
+        NSLog(@"11111");
         
         
     } failure:^(NSError * _Nonnull error) {
@@ -106,48 +109,48 @@
     }];
 }
 
-
-- (void)chlidViewAdd{
-    
-    if (self.model) {
-        
-        
-        CLLocationCoordinate2D pt ;
-        
-        if (self.locationArray.count > 0) {
-            
-            BMKPoiInfo * info  = self.locationArray[0];
-            
-            pt = info.pt;
-            
-            
-        }else{
-            
-            pt  = CLLocationCoordinate2DMake(0, 0);
-        }
-        
-        pt  = CLLocationCoordinate2DMake(34.767322, 113.686972);
-        for (int i = 0; i < self.model.data.count; i ++) {
-            
-            HomeTypeDetailModel * model = self.model.data[i];
-            // lng: 113.686972 lat: 34.767322
-            EDULog(@"%d",i);
-            HomeChildViewController  * vc = [HomeChildViewController new];
-            vc.model = model;
-            vc.pt = pt;
-            vc.view.frame = CGRectMake(WIDTH * i, 0, WIDTH, self.mainScroll.frame.size.height);
-            [self.mainScroll addSubview:vc.view];
-            [self addChildViewController:vc];
-//            [vc refshData];
-            
-        }
-        
-    }
-    
-    
-   
-    
-}
+//
+//- (void)chlidViewAdd{
+//
+//    if (self.model) {
+//
+//
+//        CLLocationCoordinate2D pt ;
+//
+//        if (self.locationArray.count > 0) {
+//
+//            BMKPoiInfo * info  = self.locationArray[0];
+//
+//            pt = info.pt;
+//
+//
+//        }else{
+//
+//            pt  = CLLocationCoordinate2DMake(0, 0);
+//        }
+//
+//        pt  = CLLocationCoordinate2DMake(34.767322, 113.686972);
+//        for (int i = 0; i < self.model.data.count; i ++) {
+//
+//            HomeTypeDetailModel * model = self.model.data[i];
+//            // lng: 113.686972 lat: 34.767322
+//            EDULog(@"%d",i);
+//            HomeChildViewController  * vc = [HomeChildViewController new];
+//            vc.model = model;
+//            vc.pt = pt;
+//            vc.view.frame = CGRectMake(WIDTH * i, 0, WIDTH, self.mainScroll.frame.size.height);
+//            [self.mainScroll addSubview:vc.view];
+//            [self addChildViewController:vc];
+////            [vc refshData];
+//
+//        }
+//
+//    }
+//
+//
+//
+//
+//}
 
 
 #pragma ScrollViewDelegate

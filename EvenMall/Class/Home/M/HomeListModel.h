@@ -53,41 +53,49 @@
 
 @interface HomeListGoodsModel : NSObject
 
-@property (nonatomic, copy) NSString * goodsId;
+@property (nonatomic, copy) NSString * goodsId;//
 
-@property (nonatomic, assign) NSInteger  goodsNum;
+@property (nonatomic, assign) NSInteger  goodsNum;//
 
-@property (nonatomic, copy) NSString * marketPrice;
+@property (nonatomic, copy) NSString * marketPrice;//
 
-@property (nonatomic, copy) NSString * goodsThumbnail;
+@property (nonatomic, copy) NSString * goodsThumbnail;//2
 
-@property (nonatomic, copy) NSString * goodAdPic;
+@property (nonatomic, copy) NSString * goodAdPic;//
 
-@property (nonatomic, copy) NSString * vipPrice;
+@property (nonatomic, copy) NSString * vipPrice;//1
 
-@property (nonatomic, copy) NSString * goodsName;
+@property (nonatomic, copy) NSString * goodsName;//6
 
-@property (nonatomic, copy) NSString * goodsTips;
+@property (nonatomic, copy) NSString * goodsTips;//
 
-@property (nonatomic, assign) BOOL  isHot;
+@property (nonatomic, assign) BOOL  isHot;//4
 
-@property (nonatomic, assign) BOOL isNew;
+@property (nonatomic, assign) BOOL isAd;//5
 
-@property (nonatomic, assign) BOOL isRecom;
+@property (nonatomic, assign) BOOL isNew;//
 
-@property (nonatomic, copy) NSString * goodsCat;
+@property (nonatomic, assign) BOOL isRecom;//
 
-@property (nonatomic, copy) NSString * goodsState;
+@property (nonatomic, copy) NSString * goodsCat;//
 
-@property (nonatomic, copy) NSString * salesNum;
+@property (nonatomic, copy) NSString * goodsState;//
 
-@property (nonatomic, copy) NSString * showTime;
+@property (nonatomic, copy) NSString * salesNum;//
 
-@property (nonatomic, copy) NSString * visitNum;
+@property (nonatomic, copy) NSString * showTime;//
 
-@property (nonatomic, copy) NSString * goodsQuantity;
+@property (nonatomic, copy) NSString * visitNum;//
 
-@property (nonatomic, copy) NSString * cre_time;
+@property (nonatomic, copy) NSString * goodsQuantity;//
+
+@property (nonatomic, copy) NSString * cre_time;//3
+
+@property (nonatomic, copy) NSString * cartQuantity;//3
+
+
+
+
 
 @end
 

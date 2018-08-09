@@ -72,6 +72,7 @@
 		B478BE712109AC780045EDC5 /* RecommendedCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B478BE6F2109AC780045EDC5 /* RecommendedCollectionCell.xib */; };
 		B494B7682117E61200197564 /* LoginNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B494B7662117E61200197564 /* LoginNewViewController.m */; };
 		B494B7692117E61200197564 /* LoginNewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B494B7672117E61200197564 /* LoginNewViewController.xib */; };
+		B494B76C211A7A5600197564 /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B494B76B211A7A5600197564 /* HomeModel.m */; };
 		B49DBA3F20FC6DD2006DC6D6 /* HomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */; };
 		B4DA6A9820E37D9800B99B83 /* CYLTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8C20E37D9700B99B83 /* CYLTabBarController.m */; };
 		B4DA6A9920E37D9800B99B83 /* CYLPlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DA6A8D20E37D9700B99B83 /* CYLPlusButton.m */; };
@@ -237,6 +238,8 @@
 		B494B7652117E61200197564 /* LoginNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginNewViewController.h; sourceTree = "<group>"; };
 		B494B7662117E61200197564 /* LoginNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginNewViewController.m; sourceTree = "<group>"; };
 		B494B7672117E61200197564 /* LoginNewViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginNewViewController.xib; sourceTree = "<group>"; };
+		B494B76A211A7A5600197564 /* HomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
+		B494B76B211A7A5600197564 /* HomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
 		B49DBA3D20FC6DD2006DC6D6 /* HomeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeListModel.h; sourceTree = "<group>"; };
 		B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListModel.m; sourceTree = "<group>"; };
 		B4DA6A8920E37D9700B99B83 /* CYLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBar.h; sourceTree = "<group>"; };
@@ -620,6 +623,8 @@
 				B416C2AB20E9C71100431652 /* LocationManger.m */,
 				B49DBA3D20FC6DD2006DC6D6 /* HomeListModel.h */,
 				B49DBA3E20FC6DD2006DC6D6 /* HomeListModel.m */,
+				B494B76A211A7A5600197564 /* HomeModel.h */,
+				B494B76B211A7A5600197564 /* HomeModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1071,6 +1076,7 @@
 				B41B907720D399B800A91A36 /* HomeViewController.m in Sources */,
 				B4DA6A9A20E37D9800B99B83 /* UIControl+CYLTabBarControllerExtention.m in Sources */,
 				B42E4A2A20D116E200EB9447 /* TAAnimatedDotView.m in Sources */,
+				B494B76C211A7A5600197564 /* HomeModel.m in Sources */,
 				B42E4A6520D1172300EB9447 /* UIView+XMGExtension.m in Sources */,
 				B41B908620D39A0400A91A36 /* CarViewController.m in Sources */,
 				B478BE662109A3780045EDC5 /* GDDTableViewCell.m in Sources */,

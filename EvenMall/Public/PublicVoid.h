@@ -19,18 +19,15 @@ typedef void (^ _Nullable RefshAESKEY)(BOOL isRefsh);     // 成功Block
 
 +(void)setupLoginViewController;
 
-+ (void)userDefaultsWith:(NSString *)key value:(NSString *)value;//存入参数
++ (void)userDefaultsWith:(NSString *_Nullable)key value:(NSString *_Nullable)value;//存入参数
 
-+(NSString *)userDefaultsWiht:(NSString *)key;//取出参数
++(NSString *_Nullable)userDefaultsWiht:(NSString *_Nullable)key;//取出参数
 
++ (NSString *_Nonnull)encryptAES:(NSString *_Nonnull)content key:(NSString *_Nullable)key ;
 
-+ (NSString *)formatFilesize:(NSInteger)filesize;
++ (NSString *_Nullable)decryptAES:(NSString *_Nullable)content key:(NSString *_Nullable)key ;
 
-+ (NSString *)encryptAES:(NSString *)content key:(NSString *)key ;
-
-+ (NSString *)decryptAES:(NSString *)content key:(NSString *)key ;
-
-+(NSDictionary *)parseJSONStringToNSDictionary:(NSString *)JSONString;
++(NSDictionary *_Nullable)parseJSONStringToNSDictionary:(NSString *_Nullable)JSONString;
 
 + (void)RefreshAES :(RefshAESKEY)refsh;
 @end

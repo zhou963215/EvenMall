@@ -46,9 +46,10 @@
 
 
 @interface PersonalInformationModel : NSObject
+
 @property (nonatomic, assign) NSInteger resultCode;
 
 @property (nonatomic, copy) NSString * msg;
 
-@property (nonatomic, copy) NSDictionary * data;
+@property (nonatomic, strong) PersonalDetailModel * data;
 @end

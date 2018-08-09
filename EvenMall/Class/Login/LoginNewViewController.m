@@ -8,6 +8,8 @@
 
 #import "LoginNewViewController.h"
 #import "CountdownBtn.h"
+
+#import "PersonalInformationModel.h"
 @interface LoginNewViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
 @property (weak, nonatomic) IBOutlet CountdownBtn *codeBtn;
@@ -102,9 +104,11 @@
     }
     if (textField ==_codeTF&&_phoneTF.text.length == 11) {
         
-        if (range.location>2&&string.length>0123) {
+        if (range.location>4&&string.length>0) {
+            
             _loginBtn.enabled = YES;
             [_loginBtn setBackgroundImage:[UIImage imageNamed:@"login_submt_s"] forState:UIControlStateNormal];
+            
         }else{
             
             _loginBtn.enabled = NO;
@@ -130,6 +134,39 @@
     [self.view endEditing:YES];
     
     
+    if (self.phoneTF.text.length !=11) {
+        
+        
+        [ZHHud initWithMessage:@"请输入正确的手机号码"];
+        return;
+    }
+    if (self.codeTF.text.length <3) {
+        
+        
+        [ZHHud initWithMessage:@"请输入正确的验证码"];
+        return;
+    }
+    
+    
+    
+    
+    
+    [[ZHNetWorking sharedZHNetWorking]POSTAES:2005 parameters:@{@"phone" : self.phoneTF.text, @"smsCode" : self.codeTF.text} success:^(id  _Nonnull responseObject) {
+        
+
+        
+        NSLog(@"%@",responseObject);
+        PersonalInformationModel * model = [PersonalInformationModel modelWithDictionary:responseObject];
+        [PublicVoid userDefaultsWith:@"token" value:model.data.token];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        
+    } failure:^(NSError * _Nonnull error) {
+        
+        
+        
+    }];
     
     
     
