@@ -10,21 +10,9 @@
 @interface CourseShare : NSObject
 
 
-@property (nonatomic, copy) NSString * orderNum;
 
-@property (nonatomic, assign) BOOL isMine;
 
 @property (nonatomic, assign) BOOL isLoad;
-
-
-@property (nonatomic, copy) NSString * nickname;
-@property (nonatomic, copy) NSString * headIcon;
-@property (nonatomic, assign) BOOL ischeck;
-@property (nonatomic, copy) NSString  * phone;
-
-
-
-
 
 + (instancetype)shareInstance;
 

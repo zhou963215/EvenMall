@@ -8,7 +8,7 @@
 
 #import "LoginNewViewController.h"
 #import "CountdownBtn.h"
-
+#import "CourseShare.h"
 #import "PersonalInformationModel.h"
 @interface LoginNewViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
@@ -158,7 +158,7 @@
         NSLog(@"%@",responseObject);
         PersonalInformationModel * model = [PersonalInformationModel modelWithDictionary:responseObject];
         [PublicVoid userDefaultsWith:@"token" value:model.data.token];
-        
+        [CourseShare shareInstance].isLoad = YES;
         [self dismissViewControllerAnimated:YES completion:nil];
         
         
